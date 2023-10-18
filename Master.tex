@@ -1,0 +1,88 @@
+% book example for classicthesis.sty
+\documentclass[12pt,a4paper,footinclude=true,headinclude=true,dottedtoc]{scrbook} % KOMA-Script book
+\usepackage[T1]{fontenc}                
+\usepackage{lipsum}
+\usepackage[linedheaders,parts,pdfspacing]{classicthesis}
+\usepackage[left=1.5in,right=1.2in,top=1in,bottom=1.3in]{geometry}
+\usepackage[french]{babel}
+% ,manychapters
+%\usepackage[osf]{libertine}
+\usepackage{subcaption}
+\usepackage{romanbar}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{esvect}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{slashed}
+\usepackage{xfrac}
+\usepackage{ulem}
+\usepackage{multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{xcolor}
+\usepackage{chemist}
+\usepackage[outline]{contour} % glow around text
+\contourlength{0.9pt}
+\usepackage[pscoord]{eso-pic}% The zero point of the coordinate systemis the lower left corner of the page (the default).
+
+\newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \setbox0=\hbox{#3}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+  }%
+}%
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\setlength\arraycolsep{2pt}
+
+\numberwithin{equation}{chapter} 
+\numberwithin{figure}{chapter}
+
+\begin{document}
+	%\pagestyle{scrheadings}
+	%\manualmark
+	%\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+
+    %\include{TitlePage_.tex}
+
+    %\cleardoublepage
+    
+    %\thispagestyle{empty}
+    %\begin{flushright}
+    %    \textit{À ma mère.}
+    %\end{flushright}
+
+    %\clearpage
+
+    %\thispagestyle{empty}
+    %\textbf{\huge Remerciements} \\
+
+    %Merci à moi même.
+    
+	\tableofcontents 
+
+    %\include{Chapitre1/Chap1.tex}
+    %\include{Chapitre2/Chap2.tex}
+    %\include{Chapitre3/Chap3.tex}
+    \include{Chapitre4/Chap4.tex}
+    \include{Chapitre5/Chap5.tex}
+    \include{Chapitre6/Chap6.tex}
+    \include{Chapitre7/Chap7.tex}
+
+    %\appendix
+    %\cleardoublepage
+    
+    %\include{Annexes/AnnexeA/AnnexeA.tex}
+    %\include{Annexes/AnnexeB/AnnexeB.tex}
+
+    %\nocite{*}
+    \bibliographystyle{unsrt}
+    \bibliography{Bibliographie}
+    \cleardoublepage
+
+\end{document}

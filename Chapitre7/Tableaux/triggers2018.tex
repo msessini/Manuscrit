@@ -1,0 +1,25 @@
+%%%TRIGGER 2018%%%%
+\begin{table}[]
+\centering
+\resizebox{14.1cm}{!}{
+%\hspace*{-5cm}
+\begin{tabular}{|llcl|}
+\hline
+\multicolumn{4}{|c|}{$\mu\tau_h$ channel}   \\ \hline
+\multicolumn{1}{|l|}{HLT Path}    & \multicolumn{1}{l|}{L1 seed}      & \multicolumn{2}{c|}{Muon filter(s) to match}       \\ \hline
+\multicolumn{1}{|l|}{HLT\_IsoMu24\_v}                     & \multicolumn{1}{l|}{L1\_SingleMu22}      & \multicolumn{2}{c|}{hltL3crIsoL1sSingleMu22L1f0L2f10QL3f24QL3trkIsoFiltered0p07}       \\ \hline
+\multicolumn{1}{|l|}{HLT\_IsoMu27\_v}               & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}L1\_SingleMu22 OR\\ L1\_SingleMu25\end{tabular}} & \multicolumn{2}{c|}{hltL3crIsoL1sMu22Or25L1f0L2f10QL3f27QL3trkIsoFiltered0p07}                                                   \\ \hline
+\multicolumn{2}{|l|}{}                                                                    & \multicolumn{1}{c|}{Muon filter(s) to match}                         & \multicolumn{1}{c|}{Tau filter(s) to match}          \\ \hline
+\multicolumn{4}{|c|}{Run \textless 315974}     \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}HLT\_IsoMu20\_eta2p1\_\\ LooseChargedIsoPFTau27\_\\ eta2p1\_CrossL1\_v\end{tabular}}             & \multicolumn{1}{l|}{L1\_Mu18er2p1\_Tau24er2p1}                                                  & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}hltL3crIsoL1sMu18erTau24erIorMu20er-\\ Tau24erL1f0L2f10QL3f20QL3trkIsoFiltered-\\ 0p07, hltOverlapFilterIsoMu20LooseCharged-\\ IsoPFTau27L1Seeded\end{tabular}}       & \begin{tabular}[c]{@{}l@{}}hltSelectedPFTau27LooseChargedIsolation-\\ AgainstMuonL1HLTMatched,\\ hltOverlapFilterIsoMu20LooseChargedIso-\\ PFTau27L1Seeded\end{tabular}                                           \\ \hline
+\multicolumn{4}{|c|}{315974 $\leq$ Run $\leq$ 317509}    \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}HLT\_IsoMu20\_eta2p1\_\\ LooseChargedIsoPFTau27\_\\ eta2p1\_CrossL1\_v\end{tabular}}    & \multicolumn{1}{l|}{L1\_Mu18er2p1\_Tau24er2p1}         & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}hltL3crIsoBigORMu18erTauXXer2p1L1f0-\\ L2f10QL3f20QL3trkIsoFiltered0p07,\\ hltOverlapFilterIsoMu20LooseCharged-\\ IsoPFTau27L1Seeded\end{tabular}}                    & \begin{tabular}[c]{@{}l@{}}hltSelectedPFTau27LooseChargedIsolation-\\ AgainstMuonL1HLTMatched,\\ hltOverlapFilterIsoMu20LooseCharged-\\ IsoPFTau27L1Seeded\end{tabular}                        \\ \hline
+\multicolumn{4}{|c|}{Run \textgreater 317509 and MC}      \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}HLT\_IsoMu20\_eta2p1\_\\ LooseChargedIsoPFTauHPS27\_\\ eta2p1\_CrossL1\_v\end{tabular}} & \multicolumn{1}{l|}{L1\_Mu18er2p1\_Tau24er2p1}                                                  & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}hltL3crIsoBigORMu18erTauXXer2p1L1f0-\\ L2f10QL3f20QL3trkIsoFiltered0p07,\\ hltHpsOverlapFilterIsoMu20LooseCharged-\\ IsoTightOOSCPhotonsPFTau27L1Seeded\end{tabular}} & \begin{tabular}[c]{@{}l@{}}hltHpsSelectedPFTau27LooseCharged-\\ IsolationTightOOSCPhotonsAgainst-\\ MuonL1HLTMatched,\\ hltHpsOverlapFilterIsoMu20LooseCharged-\\ IsoTightOOSCPhotonsPFTau27L1Seeded\end{tabular} \\ \hline
+\multicolumn{4}{|c|}{Embedded}     \\ \hline
+\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}l@{}}HLT\_IsoMu20\_eta2p1\_\\ LooseChargedIsoPFTauHPS27\_\\ eta2p1\_CrossL1\_v\end{tabular}} & \multicolumn{1}{l|}{L1\_Mu18er2p1\_Tau24er2p1}                                                  & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}hltL3crIsoBigORMu18erTauXXer2p1L1f0-\\L2f10QL3f20QL3trkIsoFiltered0p07\end{tabular}} & \begin{tabular}[c]{@{}l@{}}hltL1sBigORMu18erTauXXer2p1\\ \end{tabular} \\ \hline
+\end{tabular}
+}
+\caption{Liste des chemins HLT et des filtres associés pour les données 2018 dans le canal $\mu\tau_h$.}
+\label{trg18}
+\end{table}
