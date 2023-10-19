@@ -638,13 +638,7 @@ Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoi
     \lambda(\alpha^{H\tau\tau})=-2\ln\frac{L(\alpha^{H\tau\tau})}{L(\widehat{\alpha^{H\tau\tau}})},
 \end{equation}
 
-où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur quelconque de $\alpha^{H\tau\tau}$ et $L(\widehat{\alpha^{H\tau\tau}})$ celle pour $\alpha^{H\tau\tau}=0^{\circ}$. La figure \ref{expectedscan} présente un "balayage" (\textit{scan}) de $\lambda(\alpha^{H\tau\tau})$ pour $\alpha^{H\tau\tau}\in\bigl[-90^{\circ},+90^{\circ}\bigr]$ dans lequel un minimum est naturellement atteint pour $\alpha^{H\tau\tau}=0^{\circ}$. Les résultats attendus donnent alors une valeur de $\alpha^{H\tau\tau}=0\pm90^{\circ}$ pour la méthode du pion neutre (\textit{decay plane}) contre une valeur de $\alpha^{H\tau\tau}=0\pm66,4^{\circ}$ dans l'intervalle de confiance de $68\%$ pour le vecteur polarimétrique. L'hypothèse CP impaire est respectivement exclue avec une signification statistique de $0,94\sigma$ et $1,08\sigma$, représentant une amélioration de l'ordre de $15\%$ avec le vecteur polarimétrique. Dans un second temps, l'impact des paramètres de nuisance sur le résultat attendu est vérifié. La figure \ref{expectednuisance} présente la liste des $30$ paramètres de nuisance dont l'impact sur la mesure de $\alpha^{H\tau\tau}$ est le plus conséquent lorsque leur valeur est variée de $\pm1\sigma$ autour de leur valeur nominale. Parmi ces derniers se trouvent également les paramètres $\mu_{ggH}$ et $\mu_V$. La figure présente également un \textit{pull} pour chaque paramètre, défini par 
-
-\begin{equation}
-    \frac{\hat{\theta}-\theta_0}{\Delta\theta},
-\end{equation}
-
-où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustement, $\theta_0$ sa valeur nominale et $\Delta\theta$ son erreur associée. Dans le cas des résultats attendus, chaque paramètre est fixé à sa valeur nominale lors de l'ajustement et chaque pull est ainsi centré sur $0$. La restriction d'un pull à l'intérieur de l'intervalle $\bigl[-1,+1\bigr]$ indique une contrainte supplémentaire appliquée sur le paramètre lors de l'ajustement et une potentielle surestimation initiale de ce dernier.
+où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur quelconque de $\alpha^{H\tau\tau}$ et $L(\widehat{\alpha^{H\tau\tau}})$ celle pour $\alpha^{H\tau\tau}=0^{\circ}$. La figure \ref{expectedscan} présente un "balayage" (\textit{scan}) de $\lambda(\alpha^{H\tau\tau})$ pour $\alpha^{H\tau\tau}\in\bigl[-90^{\circ},+90^{\circ}\bigr]$ dans lequel un minimum est naturellement atteint pour $\alpha^{H\tau\tau}=0^{\circ}$. Les résultats attendus donnent alors une valeur de $\alpha^{H\tau\tau}=0\pm90^{\circ}$ pour la méthode du pion neutre (\textit{decay plane}) contre une valeur de $\alpha^{H\tau\tau}=0\pm66,4^{\circ}$ dans l'intervalle de confiance de $68\%$ pour le vecteur polarimétrique. L'hypothèse CP impaire est respectivement exclue avec une signification statistique de $0,94\sigma$ et $1,08\sigma$, représentant une amélioration de l'ordre de $15\%$ avec le vecteur polarimétrique. \\
 
 \begin{figure}[!ht]
     \begin{subfigure}[b]{0.5\linewidth}
@@ -663,6 +657,14 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
     \label{expectedscan}
 \end{figure}
 
+Dans un second temps, l'impact des paramètres de nuisance sur le résultat attendu est vérifié. Les figures \ref{expectednuisancedp} et \ref{expectednuisancepv} présentent la liste des $30$ paramètres de nuisance dont l'impact attendu sur la mesure de $\alpha^{H\tau\tau}$ est le plus conséquent lorsque leur valeur est variée de $\pm1\sigma$ autour de leur valeur nominale pour la méthode de la decay plane du vecteur polarimétrique respectivement. Parmi ces derniers se trouvent également les paramètres $\mu_{ggH}$ et $\mu_V$. Les figures présentent également un \textit{pull} pour chaque paramètre, défini par 
+
+\begin{equation}
+    \frac{\hat{\theta}-\theta_0}{\Delta\theta},
+\end{equation}
+
+où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustement, $\theta_0$ sa valeur nominale et $\Delta\theta$ son erreur associée. Dans le cas des résultats attendus, chaque paramètre est fixé à sa valeur nominale lors de l'ajustement et chaque pull est ainsi centré sur $0$. La restriction d'un pull à l'intérieur de l'intervalle $\bigl[-1,+1\bigr]$ indique une contrainte supplémentaire appliquée sur le paramètre lors de l'ajustement et une potentielle surestimation initiale de ce dernier. D'après ces résultats, la méthode du vecteur polarimétrique montre une plus grande sensibilité aux variations des incertitudes systématiques tandis que la méthode de la decay plane est d'avantage sensible aux incertitudes statistiques dites \textit{bin-by-bin}. \\
+
 \begin{figure}[]
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdpblind.pdf} 
@@ -678,6 +680,8 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
     \caption{Impact attendus des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
     \label{expectednuisancedp}
 \end{figure}
+
+La suite de la procédure consiste à vérifier les impacts observés, après ajustement données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, ces données seront d'abord dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. 
 
 \begin{figure}[!ht]
     \begin{subfigure}[b]{0.5\linewidth}
