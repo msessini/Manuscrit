@@ -100,7 +100,7 @@ $$\vv{E}^{miss,corr}_T=\vv{E}^{miss}_T-\Sigma_{jets}\bigl(\vv{p}_T^{corr}-\vv{p}
     \caption{} 
     \vspace{0.5ex}
   \end{subfigure} 
-    \caption{Résolution de la reconstruction du vertex primaire pour trois niveaux de reconstruction : vertex primaire nominal (noir), vertex avec contrainte sur la position du \textit{beamspot} (vert), vertex primaire réajusté sans traces associées aux leptons tau (rouge), vertex primaire réajusté sans traces associées aux leptons tau et avec contrainte sur la position du \textit{beamspot} (bleu).}
+    \caption{Résolution de la reconstruction du vertex primaire pour trois niveaux de reconstruction : vertex primaire nominal (noir), vertex avec contrainte sur la position du \textit{beamspot} (vert), vertex primaire réajusté sans traces associées aux leptons tau (rouge), vertex primaire réajusté sans traces associées aux leptons tau et avec contrainte sur la position du \textit{beamspot} (bleu) également choisi pour cette analyse.}
     \label{PVreso}
 \end{figure}
 
@@ -395,22 +395,22 @@ représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour 
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreJetFakes.png} 
-        \caption{Jet Fakes} 
+        \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreZTT.png} 
-        \caption{$Z\rightarrow\tau\tau$ Embed} 
+        \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
         \begin{subfigure}[b]{\linewidth}
         \centering
         \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreHiggs.png} 
-        \caption{Higgs} 
+        \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{Distribution du score de sortie du BDT dans la catégorie Jet Fakes (a), $Z\rightarrow\tau\tau$ Embed (b) et Higgs (c).}
+    \caption{Distribution du score de sortie du BDT dans la catégorie Jet Fakes (a), $Z\rightarrow\tau\tau$ Embed (b) et Higgs (c) pour les données de 2018. Les données sont masquées dans la troisième catégorie dans laquelle le signal est attendu.}
     \label{BDTscores}
 \end{figure}
 
@@ -424,31 +424,6 @@ La classification des évènements présentées dans la section \ref{BDTclassifi
 \end{equation}
 
 L'ajustement utilise en entrée une distribution dite \textit{unrolled} de l'observable $phi_{CP}$ dans le canal $a_1^{3pr}+\mu$ à partir des évènements de la catégorie de signal telle que présentée dans la figure \ref{unrolled}. Ces distributions sont obtenues à partir d'une distribution de $phi_{CP}$ répétée dans plusieurs intervalles de score. 
-
-\begin{figure}
-        \centering
-        \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/phiCP_nominal_HiggsUnrolled.png} 
-        \caption{Higgs} 
-        \label{unrolled}
-\end{figure}
-
-
-\begin{figure}
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreA1MUJetFakes.png} 
-        \caption{Jet Fakes} 
-        \vspace{0.5ex}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreA1MUZTT.png} 
-        \caption{$Z\rightarrow\tau\tau$ Embed} 
-        \vspace{0.5ex}
-    \end{subfigure}
-    \caption{}
-    \label{BDTscores}
-\end{figure}
 
 \subsection{Modèle d'ajustement}
 
@@ -690,7 +665,7 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
 
 \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.7]{Chapitre7/Images/impacts_run2blind-1.pdf} 
+        \includegraphics[scale=0.7]{Chapitre7/Images/impactspvblind.pdf} 
         \vspace{0.5ex}
     \caption{}
     \label{expectednuisance}
