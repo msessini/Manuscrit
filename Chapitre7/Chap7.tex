@@ -669,7 +669,7 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdpblind.pdf} 
         \vspace{0.5ex}
-    \caption{Impact attendus des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
+    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
     \label{expectednuisancepv}
 \end{figure}
 
@@ -677,43 +677,26 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactspvblind.pdf} 
         \vspace{0.5ex}
-    \caption{Impact attendus des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
+    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
     \label{expectednuisancedp}
 \end{figure}
 
-La suite de la procédure consiste à vérifier les impacts observés, après ajustement données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, ces données seront d'abord dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. 
+La suite de la procédure consiste à vérifier les impacts observés, après l'ajustement aux données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, seules ces données seront dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. Ces impacts sont présentés dans les figures \ref{observednuisancedp} et \ref{observednuisancepv} pour la méthode de la decay plane et du vecteur polarimétrique respectivement. La qualité de l'ajustement (GOF, \textit{Goodness Of Fit}) dans chaque catégorie peut ensuite être vérifié à travers un modèle saturé (\textit{saturated} GOF). La méthode consiste à générer N modèles de données (\textit{toys}), chacun variant aléatoirement autour de la valeur nominale des modèles introduits dans chaque catégorie en tenant compte des paramètres de nuisance considérés. De cette façon, il est possible d'estimer la probabilité selon laquelle un ensemble de données aléatoire est capable de reproduire le modèle fournit. La figure \ref{saturatedGOF} présente les résultats de la qualité d'ajustement dans les catégories de bruit de fond et dans la catégorie de signal pour les deux méthodes considérées. La haute valeur de probabilité $p=0,805$ dans la catégorie $Z\to\tau\tau$ montre la bonne modélisation de ce bruit de fond, tandis qu'une valeur plus modérée $p=0,142$ est obtenue pour la catégorie \textit{jetFakes}. Dans la catégorie de signal, une haute valeur de probabilité $p=0,824$ est obtenue pour la méthode des plans de désintégration tandis que celle pour le vecteur polarimétrique est nulle, traduisant un problème de modélisation pour ce dernier.
 
-\begin{figure}[!ht]
-    \begin{subfigure}[b]{0.5\linewidth}
+\begin{figure}[]
         \centering
-        \includegraphics[scale=0.35]{Chapitre7/Images/histFakes2018_postfit.pdf} 
-        \caption{} 
+        \includegraphics[scale=0.6]{Chapitre7/Images/impactsdp18.pdf} 
         \vspace{0.5ex}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.35]{Chapitre7/Images/histZTT2018_postfit.pdf} 
-        \caption{} 
-        \vspace{0.5ex}
-    \end{subfigure}
-    \caption{}
-    \label{BKGcategories}
+    \caption{Impact observé des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
+    \label{observednuisancepv}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[]
         \centering
-        \includegraphics[scale=0.65]{Chapitre7/Images/histSig2018dp_postfit.pdf} 
+        \includegraphics[scale=0.6]{Chapitre7/Images/impactspv18.pdf} 
         \vspace{0.5ex}
-    \caption{}
-    \label{SIGcategorydp}
-\end{figure}
-
-\begin{figure}[!ht]
-        \centering
-        \includegraphics[scale=0.65]{Chapitre7/Images/histSig2018pv_postfit.pdf} 
-        \vspace{0.5ex}
-    \caption{}
-    \label{SIGcategorypv}
+    \caption{Impact observé des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
+    \label{observednuisancedp}
 \end{figure}
 
 \begin{figure}
@@ -742,6 +725,32 @@ La suite de la procédure consiste à vérifier les impacts observés, après aj
         \vspace{0.5ex}
     \end{subfigure}
     \caption{Qualité d'ajustement saturé dans la catégorie $Z\rightarrow\tau\tau$ (a), dans la catégorie \textit{jetFakes} (b) et dans la catégorie de signal pour le vecteur polarimétrique (c) et la méthode du pion neutre (d).}
-    \label{BDTscores}
+    \label{saturatedGOF}
 \end{figure}
+
+\begin{figure}[!ht]
+    \begin{subfigure}[b]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.35]{Chapitre7/Images/histFakes2018_postfit.pdf} 
+        \caption{} 
+        \vspace{0.5ex}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.35]{Chapitre7/Images/histZTT2018_postfit.pdf} 
+        \caption{} 
+        \vspace{0.5ex}
+    \end{subfigure}
+    \caption{}
+    \label{BKGcategories}
+\end{figure}
+
+\begin{figure}[!ht]
+        \centering
+        \includegraphics[scale=0.65]{Chapitre7/Images/histSig2018dp_postfit.pdf} 
+        \vspace{0.5ex}
+    \caption{}
+    \label{SIGcategorydp}
+\end{figure}
+
 
