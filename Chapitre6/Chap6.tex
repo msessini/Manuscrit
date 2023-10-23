@@ -1,7 +1,7 @@
 \chapter{Stratégie d'analyse des propriétés CP du boson de Higgs}
 \label{chap6}
 
-Ce chapitre présente les méthodes et les outils nécessaires à l'étude des propriétés CP du boson de Higgs dans des collisions proton-proton. Ce travail s'inscrit à la suite de l'analyse de la structure CP du couplage de Yukawa du lepton tau \cite{Htautau}, réalisée avec les 137 fb$^{-1}$ de données collectées par le détecteur CMS lors de la seconde phase d'exploitation du LHC entre 2016 et 2018, et dont les résultats sont présentés dans la section \ref{Htautau}. Parmi les méthodes expérimentales misent en oeuvre pour réaliser cette mesure, cette analyse intègre également le déploiement pour la première fois de la méthode du vecteur polarimétrique dans le canal de désintégration $\tau_h\tau_h\rightarrow a_1^{3pr}+a_1^{3pr}$. Les bonnes performances de cette méthode montrées dans le travail de thèse de Guillaume Bourgatte \cite{guigui} ont motivé à étudier les possibilités de son déploiement dans d'autres canaux. Le chapitre commence par une présentation des méthodes expérimentales de mesure de l'état CP et du vecteur polarimétrique, puis des algorithmes de reconstruction des leptons tau. Ce travail inclut également une étude des variables optimales de spin du lepton tau ainsi que des performances du vecteur polarimétrique dans les canaux de désintégration hadroniques et semi-leptoniques.
+Ce chapitre présente les méthodes et les outils nécessaires à l'étude des propriétés CP du boson de Higgs dans des collisions proton-proton. Ce travail s'inscrit à la suite de l'analyse de la structure CP du couplage de Yukawa du lepton tau \cite{Htautau}, réalisée avec les 137 fb$^{-1}$ de données collectées par le détecteur CMS lors de la seconde phase d'exploitation du LHC entre 2016 et 2018. Parmi les méthodes expérimentales mises en oeuvre pour réaliser cette mesure, cette analyse intègre également le déploiement pour la première fois de la méthode du vecteur polarimétrique dans le canal de désintégration $\tau_h\tau_h\rightarrow a_1^{3pr}+a_1^{3pr}$. Les bonnes performances de cette méthode montrées dans le travail de thèse de Guillaume Bourgatte \cite{guigui} ont motivé à étudier les possibilités de son déploiement dans d'autres canaux. Le chapitre commence par une présentation des méthodes expérimentales de mesure de l'état CP et du vecteur polarimétrique, puis des algorithmes de reconstruction des leptons tau. Ce travail inclut également une étude des variables optimales de spin du lepton tau ainsi que des performances du vecteur polarimétrique dans les canaux de désintégration hadroniques et semi-leptoniques.
 
 \section{Méthodes expérimentales de mesure de l'état CP}
 \label{CPmethods}
@@ -13,7 +13,7 @@ D'après la section \ref{violCP} mettant en avant l'enjeu des corrélations des 
 \label{crosssection}
 \end{equation}
 
-où $b(E^+)$ et $b(E^-)$ sont des fonctions dépendantes de l'énergie des leptons taus. La figure \ref{phiCP2} présente la distribution de $\phi_{CP}$ pour différentes hypothèses dans le mode de désintégration $\tau_h\tau_h\rightarrow\pi\pi$, l'angle est ainsi défini par les plans contenant chacun un lepton tau et le pion issu de sa désintégration. La mesure de $\phi_{CP}$ permet alors d'accéder à la valeur de l'angle de mélange puisque le décalage de phase entre la distribution obtenue et celle attendue dans le cadre du modèle standard lorsque $\alpha^{H\tau\tau}=0^{\circ}$ est égal à $2\alpha^{H\tau\tau}$. Il est également important de noter que les désintégrations issues du bruit de fond irréductible lié au boson $Z$ entraînent une distribution plate de $\phi_{CP}$ en raison de la nature vectorielle de ce dernier. La nature composite du proton combinée à la présence de neutrinos dans les désintégrations du lepton tau rend la reconstruction de son impulsion et du référentiel au repos du boson de Higgs difficile. Bien que cette technique d'analyse fût d'abord pensée pour fonctionner sur des collisionneurs de type électron-positron, il est possible de s'affranchir des difficultés liées a l'opération d'un collisionneur de hadrons tel que le LHC grâce à des techniques optimisées décrite dans les paragraphes suivants.\\
+où $b(E^+)$ et $b(E^-)$ sont des fonctions dépendantes de l'énergie des leptons taus. La figure \ref{phiCP2} présente la distribution de $\phi_{CP}$ pour différentes hypothèses dans le mode de désintégration $\tau_h\tau_h\rightarrow\pi\pi$, l'angle est ainsi défini par les plans contenant chacun un lepton tau et le pion issu de sa désintégration. La mesure de $\phi_{CP}$ permet alors d'accéder à la valeur de l'angle de mélange puisque le décalage de phase entre la distribution obtenue et celle attendue dans le cadre du modèle standard lorsque $\alpha^{H\tau\tau}=0^{\circ}$ est égal à $2\alpha^{H\tau\tau}$. Il est également important de noter que les désintégrations issues du bruit de fond irréductible lié au boson $Z$ entraînent une distribution plate de $\phi_{CP}$ en raison de la nature vectorielle de ce dernier. La nature composite du proton combinée à la présence de neutrinos dans les désintégrations du lepton tau rend la reconstruction de son impulsion et du référentiel au repos du boson de Higgs difficile. Bien que cette technique d'analyse fut d'abord pensée pour fonctionner sur des collisionneurs de type électron-positron, il est possible de s'affranchir des difficultés liées a l'opération d'un collisionneur de hadrons tel que le LHC grâce à des techniques optimisées décrites dans les paragraphes suivants.\\
 
 \begin{figure}
 \centering
@@ -61,7 +61,7 @@ Enfin, $\phi_{CP}$ est défini dans l'intervalle $[0,2\pi]$ à partir des angles
 
 \subsection{Méthode du pion neutre}
 
-La méthode du pion neutre est applicable aux modes de désintégration comportant au moins une particule chargée et une particule neutre dans l'état final. Elle s'applique notamment dans le mode de désintégration $tau^{\pm}\rightarrow\pi^{\pm}\pi^0$ de la même façon que la méthode décrite dans la section \ref{IPmethod} en donnant au pion neutre le rôle de paramètre d'impact. Elle peut également s'utiliser dans les modes de désintégration $\tau^{\pm}\rightarrow a_1^{\pm}$ en utilisant le plan défini par les particules chargées issues de la désintégration de la résonance intermédiaire $\rho^0$ (Fig. \ref{rho0plane}) et en donnant au pion de charge opposée à la résonance $a_1$ le rôle de pion neutre dans le cas d'une désintégration à trois particules chargées, ou la somme des impulsions des deux pions neutres dans le cas d'une désintégration à une particule chargée. \\
+La méthode du pion neutre est applicable aux modes de désintégration comportant au moins une particule chargée et une particule neutre dans l'état final. Elle s'applique notamment dans le mode de désintégration $\tau^{\pm}_h\rightarrow\pi^{\pm}\pi^0$ de la même façon que la méthode décrite dans la section \ref{IPmethod} en donnant au pion neutre le rôle de paramètre d'impact. Elle peut également s'utiliser dans les modes de désintégration $\tau^{\pm}_h\rightarrow a_1^{\pm}$ en utilisant le plan défini par les particules chargées issues de la désintégration de la résonance intermédiaire $\rho^0$ (Fig. \ref{rho0plane}) et en donnant au pion de charge opposée à la résonance $a_1$ le rôle de pion neutre dans le cas d'une désintégration à trois particules chargées, ou la somme des impulsions des deux pions neutres dans le cas d'une désintégration à une particule chargée. La méthode peut également être désignée par méthode des plans de désintégration (\textit{decay plane method}) lorsqu'elle est appliquée à la résonance $a_1^{3pr}$. \\
 
 \begin{figure}[!ht]
 \centering
@@ -70,7 +70,7 @@ La méthode du pion neutre est applicable aux modes de désintégration comporta
     \label{rho0plane}
 \end{figure}
 
-La méthode du pion neutre se différencie toute fois de la méthode du paramètre d'impact par l'ajout de nouvelles variables permettant de caractériser la polarisation des leptons taus et d'éviter les interférences négatives entre états de polarisation différents :
+La méthode du pion neutre se différencie toutefois de la méthode du paramètre d'impact par l'ajout de nouvelles variables permettant de caractériser la polarisation des leptons taus et d'éviter les interférences négatives entre états de polarisation différents :
 
 \begin{equation}
     \left\{
@@ -138,7 +138,7 @@ Cette méthode est en théorie applicable à tout mode de désintégration hadro
 \section{Simulation de l'état CP}
 \label{CPsim}
 
-Afin de simuler les différents états CP du boson de Higgs, des échantillons Monte Carlo de signal dans lesquels les désintégrations $H\rightarrow\tau\tau$ sont simulées sans effets de corrélation du spin sont utilisés. A la place, le module \textsc{Tauspinner} \cite{Czyczula2012,Przedzinski2014} est employé pour simuler ces effets \textit{a posteriori} par repondération des évènements et permettant ainsi de produire un scénario pour toute valeur de l'angle de mélange $\alpha^{H\tau\tau}$ à partir d'un échantillon commun. D'après \ref{crosssection}, la section efficace différentielle de la désintégration $H\rightarrow\tau\tau$ possède une forme sinusoïdale de la forme 
+Afin de simuler les différents états CP du boson de Higgs, des échantillons Monte Carlo de signal dans lesquels les désintégrations $H\rightarrow\tau\tau$ sont simulées sans effets de corrélation du spin sont utilisés. À la place, le module \textsc{Tauspinner} \cite{Czyczula2012,Przedzinski2014} est employé pour simuler ces effets \textit{a posteriori} par repondération des évènements et permettant ainsi de produire un scénario pour toute valeur de l'angle de mélange $\alpha^{H\tau\tau}$ à partir d'un échantillon commun. D'après \ref{crosssection}, la section efficace différentielle de la désintégration $H\rightarrow\tau\tau$ possède une forme sinusoïdale de la forme 
 
 \begin{equation}
     \frac{d\sigma}{d\phi_{CP}}\propto const-\cos\bigl(\phi_{CP}-2\alpha^{H\tau\tau}\bigr),
@@ -301,7 +301,7 @@ où chaque terme désigne respectivement l'impulsion selon la composante $x$ ou 
     \includegraphics[width=\linewidth]{Chapitre6/Images/E.pdf} 
     \caption{} 
   \end{subfigure} 
-  \caption{Résolution de reconstruction de $\eta$ (a), $\phi$ (b), l'impulsion (c) et l'énergie (d) du lepton $\tau\rightarrow\nu\tau_h$ dans des évènements simulés $H\rightarrow\tau\tau$ dans le canal $a_1^{3pr}\mu$ avec l'algorithme SVFit (bleu), FastMTT (rouge) et GEF (vert).}
+  \caption{Résolution de reconstruction de $\eta$ (a), $\phi$ (b), la norme de l'impulsion (c) et l'énergie (d) du tau hadronique dans des évènements simulés $ggH\rightarrow\tau\tau$ dans le canal $a_1^{3pr}\mu$ avec l'algorithme SVFit (bleu), FastMTT (rouge) et GEF (vert).}
   \label{TauRes}
 \end{figure}
 
@@ -310,7 +310,7 @@ La figure \ref{TauRes} présente la résolution de reconstruction des coordonné
 \section{Variables optimales de spin du tau dans les samples \textit{embedded}}
 \label{optvar}
 
-Comme pour toute désintégration, le spin du lepton tau est conservé sous la forme du moment angulaire total de ses produits de désintégration. Il possède cependant un intérêt expérimental particulier, puisque son spin est accessible à travers la mesure de plusieurs variables angulaires caractérisant sa désintégration. Le premier angle caractéristique est l'angle noté $\theta$ entre la direction du lepton tau et celle du hadron ou du lepton produit tel que vu dans le référentiel au repos du lepton tau. Dans le cas de la désintégration à deux corps $\tau^-\rightarrow\pi^-\nu_{\tau}$, seul le neutrino est porteur de spin et conserve celui du lepton tau. Un neutrino étant toujours d'hélicité gauche, cet effet entraîne une émission préférentielle du pion dans la direction du spin du lepton tau. Dans le référentiel au repos de ce dernier, le pion et le neutrino sont produits dans des directions opposées et ainsi dans le cas d'un tau d'hélicité gauche, le pion sera préférentiellement émis "vers l'avant" (i.e. $\cos(\theta)\approx 1$) et préférentiellement "vers l'arrière" (i.e. $\cos(\theta)\approx -1$) pour un tau d'hélicité droite. Ce mode de désintégration est toutefois le seul pour lequel toute l'information du spin est contenue dans l'angle $\theta$. Dans le cas d'une désintégration vers une résonance $\rho$ ou $a_1^{3pr}$ de spin 1, des angles supplémentaires dont la définition est donnée dans la figure \ref{angles} sont nécessaires à la description de la désintégration puisque ces dernières peuvent être polarisées de manière longitudinale ou transverse. \\
+L'étude suivante a été réalisée dans le cadre des EPR proposés par l'expérience CMS durant cette thèse. Comme pour toute désintégration, le spin du lepton tau est conservé sous la forme du moment angulaire total de ses produits de désintégration. Il possède cependant un intérêt expérimental particulier, puisque son spin est accessible à travers la mesure de plusieurs variables angulaires caractérisant sa désintégration. Le premier angle caractéristique est l'angle noté $\theta$ entre la direction du lepton tau et celle du hadron ou du lepton produit tel que vu dans le référentiel au repos du lepton tau. Dans le cas de la désintégration à deux corps $\tau^-\rightarrow\pi^-\nu_{\tau}$, seul le neutrino est porteur de spin et conserve celui du lepton tau. Un neutrino étant toujours d'hélicité gauche, cet effet entraîne une émission préférentielle du pion dans la direction du spin du lepton tau. Dans le référentiel au repos de ce dernier, le pion et le neutrino sont produits dans des directions opposées et ainsi dans le cas d'un tau d'hélicité gauche, le pion sera préférentiellement émis "vers l'avant" (i.e. $\cos(\theta)\approx 1$) et préférentiellement "vers l'arrière" (i.e. $\cos(\theta)\approx -1$) pour un tau d'hélicité droite. Ce mode de désintégration est toutefois le seul pour lequel toute l'information du spin est contenue dans l'angle $\theta$. Dans le cas d'une désintégration vers une résonance $\rho$ ou $a_1^{3pr}$ de spin 1, des angles supplémentaires dont la définition est donnée dans la figure \ref{angles} sont nécessaires à la description de la désintégration puisque ces dernières peuvent être polarisées de manière longitudinale ou transverse. \\
 
 Pour un méson $\rho$, deux angles supplémentaires définis dans le référentiel au repos de la résonance sont considérés. Le premier, $\beta$, est défini entre la direction de la résonance $\rho$ et le pion chargé. Le second, $\alpha$, est défini entre le plan constitué par la direction du lepton tau et celle de la résonance $\rho$ et le plan constitué par la direction du pion chargé et celle de la résonance $\rho$. \\
 
@@ -460,7 +460,7 @@ La figure \ref{omegabar_tautau} présente une comparaison de la distribution des
 \section{Performances du vecteur polarimétrique dans les canaux hadroniques} 
 \label{perf}
 
-Cette section est dédiée à l'étude des performances du vecteur polarimétrique face aux méthodes du pion neutre et du paramètre d'impact basées uniquement sur les produits de désintégration visibles du lepton tau. Afin de comparer la sensibilité d'une méthode à une autre, la distribution de $\phi_{CP}$ pour chacune d'elle est ajustée par une fonction cosinus avec deux paramètres $a$ et $b$ telle que $f = a\cos(\phi_{CP})+b$. Le ratio $a/b$ de ces paramètres permet alors de quantifier l'amplitude de l'oscillation de la distribution de $\phi_{CP}$, un plus grand ratio offrant un meilleur pouvoir de séparation entre les différents états CP et donc une meilleure sensibilité. Les performances du vecteur polarimétrique sont évaluées dans les six canaux hadroniques $\tau_h\tau_h\rightarrow\pi\pi,\pi\rho,\rho\rho,a_1^{3pr}\pi,a_1^{3pr}\rho,a_1^{3pr}a_1^{3pr}$. Dans un premier temps une étude au niveau générateur est effectuée afin d'étudier les canaux les plus sujets à une amélioration de la sensibilité. Dans chaque figure présentée dans la suite, la distribution de $\phi_{CP}$ obtenue avec le vecteur polarimétrique (\textit{pol. vec.}) est comparée à celle obtenue avec la méthode du pion neutre (\textit{neutral pion}, NP) ou du paramètre d'impact (\textit{impact par.}, IP) en accord avec le canal considéré. Pour rappel, tandis que le vecteur polarimétrique est applicable à tous les canaux hadroniques, la méthode du paramètre d'impact est choisie pour l'état final $\tau_h\rightarrow\pi$ et la méthode du pion neutre pour les états finaux $\tau_h\rightarrow\rho,a_1^{3pr}$. Dans le cas des canaux $\tau_h\tau_h\rightarrow a_1^{3pr}\rho,a_1^{3pr}\pi$, il est alors possible d'appliquer la méthode du vecteur polarimétrique sur les deux états finaux ou de conserver l'utilisation du paramètre d'impact sur l'état final $\tau_h\rightarrow\pi$ et de n'appliquer le vecteur polarimétrique que sur la résonance $\rho$ ou $a_1^{3pr}$. \\
+Cette section est dédiée à l'étude des performances du vecteur polarimétrique face aux méthodes du pion neutre et du paramètre d'impact fondées uniquement sur les produits de désintégration visibles du lepton tau. Afin de comparer la sensibilité d'une méthode à une autre, la distribution de $\phi_{CP}$ pour chacune d'elle est ajustée par une fonction cosinus avec deux paramètres $a$ et $b$ telle que $f = a\cos(\phi_{CP})+b$. Le ratio $a/b$ de ces paramètres permet alors de quantifier l'amplitude de l'oscillation de la distribution de $\phi_{CP}$, un plus grand ratio offrant un meilleur pouvoir de séparation entre les différents états CP et donc une meilleure sensibilité. Les performances du vecteur polarimétrique sont évaluées dans les six canaux hadroniques $\tau_h\tau_h\rightarrow\pi\pi,\pi\rho,\rho\rho,a_1^{3pr}\pi,a_1^{3pr}\rho,a_1^{3pr}a_1^{3pr}$. Dans un premier temps une étude au niveau générateur est effectuée afin d'étudier les canaux les plus sujets à une amélioration de la sensibilité. Dans chaque figure présentée dans la suite, la distribution de $\phi_{CP}$ obtenue avec le vecteur polarimétrique (\textit{pol. vec.}) est comparée à celle obtenue avec la méthode du pion neutre (\textit{neutral pion}, NP) ou du paramètre d'impact (\textit{impact par.}, IP) en accord avec le canal considéré. Pour rappel, tandis que le vecteur polarimétrique est applicable à tous les canaux hadroniques, la méthode du paramètre d'impact est choisie pour l'état final $\tau_h\rightarrow\pi$ et la méthode du pion neutre pour les états finaux $\tau_h\rightarrow\rho,a_1^{3pr}$. Dans le cas des canaux $\tau_h\tau_h\rightarrow a_1^{3pr}\rho,a_1^{3pr}\pi$, il est alors possible d'appliquer la méthode du vecteur polarimétrique sur les deux états finaux ou de conserver l'utilisation du paramètre d'impact sur l'état final $\tau_h\rightarrow\pi$ et de n'appliquer le vecteur polarimétrique que sur la résonance $\rho$ ou $a_1^{3pr}$. \\
 
 \begin{figure}[]
   \begin{subfigure}[b]{0.5\linewidth}
@@ -475,7 +475,7 @@ Cette section est dédiée à l'étude des performances du vecteur polarimétriq
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-  \caption{Distribution de $\phi_{CP}$ dans le canal $\tau_h\tau_h\rightarrow\pi\pi$ au niveau générateur pour l'état CP pair (gauche) et CP impair (droite).}
+  \caption{Distribution de $\phi_{CP}$ dans le canal $\tau_h\tau_h\rightarrow\pi\pi$ au niveau générateur pour l'état CP pair (gauche) et CP impair (droite) dans des évènements $ggH\to\tau\tau$.}
   \label{CPgenPIPI}
 \end{figure}
 
@@ -506,7 +506,7 @@ Cette section est dédiée à l'étude des performances du vecteur polarimétriq
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\pi$, avec $X=\rho,a^{3pr}_1$, au niveau générateur pour l'état CP pair (gauche) et CP impair (droite).}
+  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\pi$, avec $X=\rho,a^{3pr}_1$, au niveau générateur pour l'état CP pair (gauche) et CP impair (droite) dans des évènements $ggH\to\tau\tau$.}
   \label{CPgenXPI}
 \end{figure}
 
@@ -550,7 +550,7 @@ Cette section est dédiée à l'étude des performances du vecteur polarimétriq
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\pi$, avec $X=\pi,\rho,a^{3pr}_1$, au niveau générateur pour l'état CP pair (gauche) et CP impair (droite).}
+  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\pi$, avec $X=\pi,\rho,a^{3pr}_1$, au niveau générateur pour l'état CP pair (gauche) et CP impair (droite) dans des évènements $ggH\to\tau\tau$.}
   \label{CPgen}
 \end{figure}
 
@@ -606,7 +606,7 @@ La même étude est ensuite portée au niveau reconstruit. L'utilisation des alg
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\rho$, avec $X=\pi,\rho$, au niveau reconstruit pour l'état CP pair (gauche) et CP impair (droite).}
+  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+\rho$, avec $X=\pi,\rho$, au niveau reconstruit pour l'état CP pair (gauche) et CP impair (droite) dans des évènements $ggH\to\tau\tau$.}
   \label{CPrecoXPI}
 \end{figure}
 
@@ -650,7 +650,7 @@ La même étude est ensuite portée au niveau reconstruit. L'utilisation des alg
     \vspace{0.5ex}
   \end{subfigure} 
   
-  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+a_1^{3pr}$, avec $X=\pi,\rho,a^{3pr}_1$, au niveau reconstruit pour l'état CP pair (gauche) et CP impair (droite).}
+  \caption{Distributions de $\phi_{CP}$ dans les canaux $\tau_h\tau_h\rightarrow X+a_1^{3pr}$, avec $X=\pi,\rho,a^{3pr}_1$, au niveau reconstruit pour l'état CP pair (gauche) et CP impair (droite) dans des évènements $ggH\to\tau\tau$.}
   \label{CPreco}
 \end{figure}
 
@@ -686,7 +686,7 @@ Cette section constitue une introduction au chapitre suivant dans lequel une mes
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-\caption{Gauche : distributions de $\phi_{CP}$ au niveau générateur dans le canal $\pi\mu$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du paramètre d'impact et le vecteur polarimétrique. Droite : distributions de $\phi_{CP}$ au niveau générateur dans le canal $\rho\mu$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du pion neutre et le vecteur polarimétrique.}
+\caption{Gauche : distributions de $\phi_{CP}$ au niveau générateur dans le canal $\pi\mu$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du paramètre d'impact et le vecteur polarimétrique dans des évènements $ggH\to\tau\tau$. Droite : distributions de $\phi_{CP}$ au niveau générateur dans le canal $\rho\mu$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du pion neutre et le vecteur polarimétrique dans des évènements $ggH\to\tau\tau$.}
 \label{Xmugen}
 \end{figure}
 
@@ -706,7 +706,7 @@ La figure \ref{a1mugen} montre les performances du vecteur polarimétrique au ni
     \caption*{} 
     \vspace{0.5ex}
   \end{subfigure} 
-\caption{Gauche : distributions de $\phi_{CP}$ au niveau générateur dans le canal $a_1^{3pr}\mu$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du pion neutre et le vecteur polarimétrique. Droite : distribution pour les états CP pair et impair dans des évènements $Z\to\tau\tau$ \textit{embedded} avec le vecteur polarimétrique au niveau généré.}
+\caption{Gauche : distributions de $\phi_{CP}$ au niveau générateur dans le canal $a_1^{3pr}\mu$ dans des évènements $ggH\to\tau\tau$. Comparaison de l'amplitude d'oscillation pour les états CP pair et impair entre la méthode du pion neutre et le vecteur polarimétrique. Droite : distribution pour les états CP pair et impair dans des évènements $Z\to\tau\tau$ \textit{embedded} avec le vecteur polarimétrique au niveau généré.}
 \label{a1mugen}
 \end{figure}
 
