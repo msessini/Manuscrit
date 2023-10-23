@@ -19,18 +19,18 @@ Cette mesure est effectuée dans les données \textit{SingleMuon} enregistrées 
     \item[$\bullet$] Production électrofaible d'un boson $Z$ ou $W$ (EWK-W/Z)\\
 \end{itemize}
 
-La liste complète regroupant le détail des échantillons Monte Carlo utilisés dans cette analyse, le générateur employé et la section efficace associée se trouve en annexe \ref{annexA}. Les échantillons $\textit{embedded}$ décrits dans la section \ref{embed} sont également utilisés dans la description du bruit de fond associé à la désintégration $Z\rightarrow\tau\tau$.
+Les échantillons $\textit{embedded}$ décrits dans la section \ref{embed} sont également utilisés dans la description du bruit de fond associé à la désintégration $Z\rightarrow\tau\tau$.
 
 \input{Chapitre7/Tableaux/data.tex}
 
 \section{Reconstruction des évènements}
 \label{eventreco}
 
-Cette section vise à présenter les méthodes de reconstruction des différents objets utiles à la reconstruction de l'observable $\phi_{CP}$ dans les évènements $H\to\tau\tau$ d'état final $\mu\tau_h$. Parmi ceux-ci se trouvent les leptons ($e,\mu,\tau$), les jets, la MET, le vertex primaire, le vertex secondaire de la désintégration $\tau_h\to a_1^{3pr}$ et le paramètre d'impact du muon. Une méthode d'identification des modes de désintégration des leptons tau hadroniques, propre à cette analyse, sera également présentée. 
+Cette section vise à présenter les méthodes de reconstruction des différents objets utiles à l'obtention de l'observable $\phi_{CP}$ dans les évènements $H\to\tau\tau$ d'état final $\mu\tau_h$. Parmi ceux-ci se trouvent les leptons ($e,\mu,\tau$), les jets, la MET, le vertex primaire, le vertex secondaire de la désintégration $\tau_h\to a_1^{3pr}$ et le paramètre d'impact du muon. Une méthode d'identification des modes de désintégration des leptons taus hadroniques, propre à cette analyse, sera également présentée. 
 
 \subsection{Leptons}
 
-Les électrons et muons employés dans cette analyse sont reconstruits et identifiés par l'algorithme du flux de particules selon les méthodes décrites dans les sections \ref{MuonID} et \ref{EGammaID} respectivement. Les leptons taus sont reconstruits par l'algorithme HPS décrit dans la section \ref{TauID}. La mesure de l'état CP étant directement reliée au mode de désintégration du lepton tau, un algorithme d'identification prodiguant une bonne pureté est essentiel. La principale faiblesse de l'algorithme HPS est son inaptitude à correctement identifier les pions neutres et à faussement identifier les modes de désintégrations qui en contiennent. Un BDT utilisant en entrée le mode de désintégration HPS (HPS-DM) ainsi que plusieurs variables cinématiques issues du tau hadronique est alors employé afin de redéfinir un nouveau mode de désintégration noté MVA-DM \cite{mohammadphd,mvadm}. Cet algorithme est spécifiquement optimisé dans le but d'offrir la meilleure pureté dans chaque mode de désintégration. La figure~\ref{confusionMVADM} montre les matrices de confusion du MVA-DM normalisées en ligne et en colonne, et la figure~\ref{purityMVADM} montre une comparaison de l'efficacité et de la pureté entre les HPS-DM et les MVA-DM. Les résultats montrent notamment une légère perte d'efficacité dans les états finaux à un et trois pions chargés, au profit d'une meilleure efficacité pour les états finaux avec au moins un pion neutre et d'une amélioration globale de la pureté dans tous les modes de désintégration. \\
+Les électrons et muons employés dans cette analyse sont reconstruits et identifiés par l'algorithme du flux de particules selon les méthodes décrites dans les sections \ref{MuonID} et \ref{EGammaID} respectivement. Les leptons taus sont reconstruits par l'algorithme HPS décrit dans la section \ref{TauID}. La mesure de l'état CP étant directement reliée au mode de désintégration du lepton tau, un algorithme d'identification assurant une bonne pureté est essentiel. La principale faiblesse de l'algorithme HPS est son inaptitude à correctement identifier les pions neutres et à faussement identifier les modes de désintégrations qui en contiennent. Un BDT utilisant en entrée le mode de désintégration HPS (HPS-DM) ainsi que plusieurs variables cinématiques issues du tau hadronique est alors employé afin de redéfinir un nouveau mode de désintégration noté MVA-DM \cite{mohammadphd,mvadm}. Cet algorithme est spécifiquement optimisé dans le but d'offrir la meilleure pureté dans chaque mode de désintégration. La figure~\ref{confusionMVADM} montre les matrices de confusion du MVA-DM normalisées en ligne et en colonne, et la figure~\ref{purityMVADM} montre une comparaison de l'efficacité et de la pureté entre les HPS-DM et les MVA-DM. Les résultats montrent notamment une légère perte d'efficacité dans les états finaux à un et trois pions chargés, au profit d'une meilleure efficacité pour les états finaux avec au moins un pion neutre et d'une amélioration globale de la pureté dans tous les modes de désintégration. \\
 
 \begin{figure}
 \centering
@@ -47,7 +47,7 @@ Les jets utilisés dans cette analyse sont issus de la reconstruction effectuée
     \bigskip
     \item[-] Identification \textit{Tight} des jets \cite{JetID},
     \smallskip
-    \item[-] Séparation de la paire de tau sélectionnée $\Delta R>0,5$,
+    \item[-] Séparation de la paire de taus sélectionnée $\Delta R>0,5$,
     \smallskip
     \item[-] $p_T>30$ GeV et $|\eta|<4,7$. 
     \bigskip
@@ -74,7 +74,7 @@ MVA-DM (bleu) et HPS-DM (orange) \cite{mvadm}.}
 \subsection{MET}
 \label{MET}
 
-La MET utilisée est reconstruite par l'algorithme PUPPI, choisi pour sa meilleure performance face à l'empilement au lieu de la MET issue du flux de particules (PF MET) \cite{puppi}. Les JEC sont ensuite propagées à la MET de la façon suivante :
+La MET utilisée est reconstruite par l'algorithme PUPPI, choisi pour sa meilleure performance face à l'empilement au lieu de la MET issue du flux de particules (PF MET) \cite{puppi}. Les corrections d'énergie des jets sont ensuite propagées à la MET de la façon suivante :
 
 $$\vv{E}^{miss,corr}_T=\vv{E}^{miss}_T-\Sigma_{jets}\bigl(\vv{p}_T^{corr}-\vv{p}_T\bigr).$$
 
@@ -100,11 +100,11 @@ $$\vv{E}^{miss,corr}_T=\vv{E}^{miss}_T-\Sigma_{jets}\bigl(\vv{p}_T^{corr}-\vv{p}
     \caption{} 
     \vspace{0.5ex}
   \end{subfigure} 
-    \caption{Résolution de la reconstruction du vertex primaire pour trois niveaux de reconstruction : vertex primaire nominal (noir), vertex avec contrainte sur la position du \textit{beamspot} (vert), vertex primaire réajusté sans traces associées aux leptons tau (rouge), vertex primaire réajusté sans traces associées aux leptons tau et avec contrainte sur la position du \textit{beamspot} (bleu) également choisi pour cette analyse.}
+    \caption{Résolution de la reconstruction du vertex primaire pour quatre méthodes de reconstruction dans des évènements $ggH\to\tau\tau$ : vertex primaire nominal (noir), vertex avec contrainte sur la position du \textit{beamspot} (vert), vertex primaire réajusté sans traces associées aux leptons tau (rouge), vertex primaire réajusté sans traces associées aux leptons tau et avec contrainte sur la position du \textit{beamspot} (bleu) également choisi pour cette analyse.}
     \label{PVreso}
 \end{figure}
 
-La reconstruction du vertex primaire (PV) permet de déterminer la position exacte de l'interaction proton-proton ayant donné lieu à un évènement et représente ainsi un enjeu crucial pour la bonne reconstruction de ce dernier. En particulier, certains éléments nécessaires à la reconstruction des observables CP tels que le paramètre d'impact ou le vecteur polarimétrique reposent sur la connaissance du vertex primaire. Deux étapes sont nécessaires durant lesquelles des ensembles de traces originaires d'un même vertex sont recherchés (regroupement), puis la meilleure estimation de la position du vertex est calculée pour chaque ensemble à partir des traces qu'il contient (ajustement). L'étape de regroupement est réalisée grâce à un algorithme basé sur le principe du \textit{deterministic annealing} (DA) \cite{annealing} visant à rechercher le minimum global d'un système possédant de nombreux degrés de liberté. Le vertex primaire est ensuite choisi en sélectionnant l'ensemble pour lequel la somme $\Sigma p_T^2$ de chaque trace est la plus grande. La position du vertex est ensuite déterminée par un ajustement des traces qui lui sont associées grâce à un algorithme nommé \textit{adaptative vertex fitter} \cite{adaptative}. Le temps de vol du lepton tau implique que ses produits de désintégration sont issus d'un vertex secondaire. Afin d'éviter un biais dans la reconstruction du vertex primaire, les traces identifiées comme provenant de la désintégration du tau sont retirées de l'ensemble lors de l'ajustement et la position du vertex est de nouveau ajustée. Une première estimation de la position du vertex est donnée par la méthode FSMW (\textit{Fraction of Sample Mode with Weights}) \cite{adaptative} avec une grande incertitude puis les traces sont ordonnées selon leur distance à cette position. Les traces sont ensuite ajoutées une par une au vertex et sa position est ajustée à chaque ajout par des filtres de Kalman. La nouvelle position du vertex est alors comparée à sa position initiale, et les traces sont pondérées selon leur compatibilité à cette nouvelle position dans le cas où l'écart avec la position initiale est significatif. Cette étape est ensuite répétée en partant de la position du vertex issue de l'itération précédente jusqu'à obtenir une position stable sur plusieurs itération, ou que le nombre maximum d'itération soit atteint. La position calculée lors de la dernière itération et l'incertitude qui lui est associée sont alors retenues. La résolution du vertex primaire peut être améliorée d'avantage en appliquant une contrainte sur la position du \textit{beamspot}, défini par le profil 3D de la zone d'interaction des faisceaux au point de collision et mesuré à partir d'une moyenne sur une grande quantité d'évènements \cite{adaptative}. Cette contrainte s'applique en choisissant la position du \textit{beamspot} comme position initiale du vertex lors de l'ajustement et remplace la méthode FSMW citée précédemment. La figure \ref{PVreso} montre que le retrait des traces associées au lepton tau avant ajustement impacte peu la résolution de reconstruction, tandis que l'ajout d'une contrainte sur la position du \textit{beamspot} l'améliore fortement selon les composantes $x$ et $y$. Le choix du vertex primaire dans le cadre de cette analyse est porté vers le vertex primaire réajusté sans traces avec une contrainte sur la position du \textit{beamspot}.
+La reconstruction du vertex primaire (PV) permet de déterminer la position exacte de l'interaction proton-proton ayant donné lieu à un évènement et représente ainsi un enjeu crucial pour la bonne reconstruction de ce dernier. En particulier, certains éléments nécessaires à la reconstruction des observables CP tels que le paramètre d'impact ou le vecteur polarimétrique reposent sur la connaissance du vertex primaire. Deux étapes sont nécessaires durant lesquelles des ensembles de traces originaires d'un même vertex sont recherchés (regroupement), puis la meilleure estimation de la position du vertex est calculée pour chaque ensemble à partir des traces qu'il contient (ajustement). L'étape de regroupement est réalisée grâce à un algorithme basé sur le principe du \textit{deterministic annealing} (DA) \cite{annealing} visant à rechercher le minimum global d'un système possédant de nombreux degrés de liberté. Le vertex primaire est ensuite choisi en sélectionnant l'ensemble pour lequel la somme $\Sigma p_T^2$ de chaque trace est la plus grande. La position du vertex est ensuite déterminée par un ajustement des traces qui lui sont associées grâce à un algorithme nommé \textit{adaptative vertex fitter} \cite{adaptative}. Le temps de vol du lepton tau implique que ses produits de désintégration soient issus d'un vertex secondaire. Afin d'éviter un biais dans la reconstruction du vertex primaire, les traces identifiées comme provenant de la désintégration du tau sont retirées de l'ensemble lors de l'ajustement et la position du vertex est de nouveau ajustée. Une première estimation de la position du vertex est donnée par la méthode FSMW (\textit{Fraction of Sample Mode with Weights}) \cite{adaptative} avec une grande incertitude puis les traces sont ordonnées selon leur distance à cette position. Les traces sont ensuite ajoutées une par une au vertex et sa position est ajustée à chaque ajout par des filtres de Kalman. La nouvelle position du vertex est alors comparée à sa position initiale, et les traces sont pondérées selon leur compatibilité à cette nouvelle position dans le cas où l'écart avec la position initiale est significatif. Cette étape est ensuite répétée en partant de la position du vertex issue de l'itération précédente jusqu'à obtenir une position stable sur plusieurs itération, ou que le nombre maximum d'itération soit atteint. La position calculée lors de la dernière itération et l'incertitude qui lui est associée sont alors retenues. La résolution du vertex primaire peut être améliorée d'avantage en appliquant une contrainte sur la position du \textit{beamspot}, défini par le profil 3D de la zone d'interaction des faisceaux au point de collision et mesuré à partir d'une moyenne sur une grande quantité d'évènements \cite{adaptative}. Cette contrainte s'applique en choisissant la position du \textit{beamspot} comme position initiale du vertex lors de l'ajustement et remplace la méthode FSMW citée précédemment. La figure \ref{PVreso} montre que le retrait des traces associées au lepton tau avant ajustement impacte peu la résolution de reconstruction, tandis que l'ajout d'une contrainte sur la position du \textit{beamspot} l'améliore fortement selon les composantes $x$ et $y$. Le choix du vertex primaire dans le cadre de cette analyse est porté vers le vertex primaire réajusté sans traces avec une contrainte sur la position du \textit{beamspot}.
 
 \subsection{Paramètre d'impact}
 \label{IPreco}
@@ -150,7 +150,7 @@ où $\hat{j}$ est le paramètre d'impact unitaire. La figure \ref{IPxyz} montre 
     \caption{} 
     \vspace{0.5ex}
   \end{subfigure}
-    \caption{Distribution de la signifiance (a) et des trois coordonnées cartésiennes $x$ (b), $y$ (c) et $z$ (d) du paramètre d'impact du muon reconstruit et calibré dans les données 2018.}
+    \caption{Distribution de la signifiance (a) et des trois coordonnées cartésiennes $x$ (b), $y$ (c) et $z$ (d) du paramètre d'impact du muon reconstruit et calibré dans des évènements $ggH\to\tau\tau$ pour les données 2018.}
     \label{IPxyz}
 \end{figure}
 
@@ -330,7 +330,9 @@ Le biais sur la mesure de l'impulsion des muons est généralement corrigé par 
 
 Des différences sont observées entre les données et la simulation pour l'efficacité de reconstruction et d'identification des taus hadroniques. Pour prendre en compte ces déviations, des corrections issues de deux catégories d'impulsion transverse du $\tau_h$ ($p_{T}>40$ GeV et $p_T<40$ GeV) et de cinq catégories de MVA-DM (0,1,2,10 et 11) sont appliquées. La méthode de dérivation de ces corrections est décrite dans l'annexe~\ref{annexB}.
 
-\subsubsection{\ding{95} Correction du taux de faux $l\rightarrow\tau_h$}
+\subsubsection{\ding{95} Correction d'identification $l\rightarrow\tau_h$}
+
+Des corrections sont appliquées aux évènements simulés dans lesquels un muon ou un électron est faussement identifié comme tau hadronique afin de tenir compte des différences d'efficacité des discriminants de \textit{Deeptau} entre données et simulation. Ces corrections ne sont pas appliquées aux évènements \textit{embedded} qui sont issus des données.
 
 \subsubsection{\ding{95} Correction du recul de la MET}
 
@@ -363,6 +365,7 @@ Plusieurs types de bruit de fond sont considérés pour l'état final $\mu+\tau_
 La contribution du bruit de fond principal et irréductible associé à la désintégration du boson $Z$ en une paire de leptons tau est estimée grâce aux échantillons $\textit{embedded}$. Seul les évènements contenant une vraie paire $\mu+\tau_h$ correctement identifiée sont conservés. Certains évènements $t\overline{t}$ et $VV$ sont toutefois également inclus dans ces échantillons par erreur d'identification lors de l'étape de sélection du processus de l'\textit{embedding}. Afin d'éviter un double comptage, seuls les évènements dans lesquels la paire $\mu+\tau_h$ est mal identifiée et à l'exception de ceux où un jet est identifié comme un tau hadronique sont utilisés dans les autres échantillons Monte Carlo. La contribution des évènements contenant un jet mal identifié ($j\rightarrow\tau_h$) est directement estimée dans les données grâce à la méthode des \textit{Fake Factors} (FF) décrite ci-dessous.
 
 \subsection{Méthode des <<\textit{Fake Factors}>>}
+\label{ff}
 
 Deux contraintes sont à l'origine du choix du développement d'une méthode spécifique pour l'estimation de la contribution du bruit de fond $j\rightarrow\tau_h$. D'une part la mauvaise description des jets susceptibles d'êtres reconstruits comme des candidats $\tau_h$ dans les échantillons simulés, et d'autre part le coût de calcul élevé lié à la grande statistique nécessaire pour simuler ce cas de figure relativement rare. La méthode repose sur la formation d'une région d'application (AR) dans les données dans laquelle le candidat $\tau_h$ échoue la sélection au point de fonctionnement \textit{Medium} de \textit{DeepTau} qui est appliquée dans la région de signal (SR), mais passe le point de fonctionnement \textit{VVVLoose}. Les évènements de l'AR sont ensuite pondérés par des facteurs $FF_i$ définis par :
 
@@ -389,24 +392,66 @@ représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour 
 \section{Classification des évènements}
 \label{BDTclassifier}
 
+La classification des évènements est produite par un arbre de décision boosté multi-classe entraîné avec la librairie \textsc{XGBoost} \cite{XGboost}. Les évènements sont ainsi classifiés selon trois catégories : \\
+
+\begin{itemize}
+    \item[$\bullet$] Higgs : processus de signal $H\to\tau\tau$ regroupant les modes de production $ggH$, $VBF$ et $VH$.
+    \smallskip
+    \item[$\bullet$] $Z\to\tau\tau$ : processus contenant deux leptons $\tau$ correctement identifiés.
+    \smallskip
+    \item[$\bullet$] JetFakes : processus contenant au moins un faux lepton $\tau$. \\
+\end{itemize}
+
+L'entraînement est réalisé avec des données de 2018 simultanément sur des évènements $H\to\tau\tau$ issus d'échantillons simulés ($ggH$, $VBF$, $VH$) pour la première catégorie, sur des évènements Drell-Yann issus d'échantillons \textit{embedded} pour la seconde, et sur une région des données dans laquelle la paire identifiée est de même signe ou sur des évènements dans lesquels au moins un des taus n'est pas correctement identifié à partir d'échantillons simulés ($W$+jets, $t\overline{t}$, $VV$). La liste des variables utilisées en entrée de l'entraînement est donnée ci-dessous : \\
+
+\begin{itemize}
+    \item[$\bullet$] $p_T^{\mu}$ : impulsion transverse du muon.
+    \smallskip
+    \item[$\bullet$] $p_T^{\tau_h}$ : impulsion transverse du tau hadronique.
+    \smallskip
+    \item[$\bullet$] $m_{\tau\tau}$ : masse invariante de la paire $\tau\tau$ reconstruite avec FastMTT.
+    \smallskip
+    \item[$\bullet$] $m_{\tau\tau}^{vis}$ : masse invariante de la paire $\mu\tau_h$
+    \smallskip
+    \item[$\bullet$] $\Delta\eta(jj)$ : différence $\Delta\eta$ entre la paire de jets de plus haute impulsion transverse.
+    \smallskip
+    \item[$\bullet$] $p_T(jj)$ : impulsion transverse de la paire de jets de plus haute impulsion transverse.
+    \smallskip
+    \item[$\bullet$] $m(jj)$ : masse invariante de la paire de jets de plus haute impulsion transverse.
+    \smallskip
+    \item[$\bullet$] $p_T^{\tau\tau}$ : impulsion transverse de la paire $\mu\tau_h$.
+    \smallskip
+    \item[$\bullet$] Leading jet $p_T$ : impulsion transverse du jet de plus haute impulsion transverse.
+    \smallskip
+    \item[$\bullet$] Subleading jet $p_T$ : impulsion transverse du second jet de plus haute impulsion transverse.
+    \smallskip
+    \item[$\bullet$] $N$ jets : nombre de jets.
+    \smallskip
+    \item[$\bullet$] $p_T^{mis}$ : impulsion transverse de la MET.
+    \smallskip
+    \item[$\bullet$] $m_T^{\mu+MET}$ : masse transverse du système $\mu$+MET. \\
+\end{itemize}
+
+Les figures \ref{page1} à \ref{page4} présentent les distributions de chacune de ces variables pour les trois années de prise de données du Run 2 dans le canal $\mu\tau_h$ ainsi que l'accord entre données et simulation. Enfin la figure \ref{BDTscores} présente la distribution du score de sortie du BDT pour chaque catégorie.
+
 \input{Chapitre7/Images/CtrlPlots/ctrlplots}
 
-\begin{figure}
+\begin{figure}[!ht]
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreJetFakes.png} 
+        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreJetFakes.png} 
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreZTT.png} 
+        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreZTT.png} 
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
         \begin{subfigure}[b]{\linewidth}
         \centering
-        \includegraphics[scale=0.28]{Chapitre7/Images/CtrlPlots/2018/BDTscoreHiggs.png} 
+        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreHiggs.png} 
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
@@ -581,6 +626,10 @@ Une incertitude correspondant à l'application de la correction sur l'impulsion 
 
 Une incertitude correspondant à l'application d'entre 0 et 2 fois la correction sur l'impulsion transverse du quark top est considérée avec une corrélation entre les années. 
 
+\subsubsection{Incertitudes sur les Fakes Factors}
+
+L'estimation du bruit de fond lié aux évènements dans lesquels un jet est faussement identifié comme tau hadronique est obtenue par la méthode des \textit{Fake Factors} décrite dans la section \ref{ff}. Cette méthode est à l'origine de plusieurs incertitudes systématiques traitées de la même façon que dans la référence \cite{Htautau}. 
+
 \subsubsection{\ding{95} Incertitude théorique sur le signal}
 
 Les incertitudes théoriques sur la forme des distributions du signal considérées portent sur les paramètres d'échelle d'énergie de la QCD $\mu_F$ et $\mu_R$. Les autres incertitudes sur la PDF du proton et la constante de couplage de l'interaction forte $\alpha_S$ sont négligeables. L'incertitude consiste à faire varier les paramètres $\mu_F$ et $\mu_R$ entre $\mu_F=\mu_R=\frac{1}{2}$ et $\mu_F=\mu_R=2$. \\
@@ -628,11 +677,28 @@ où $\hat{n}$ est la valeur moyenne d'évènements de la distribution de $\phi_{
     \Delta n_{\phi} = \frac{|n(\phi)-\hat{n}|+|n(2\pi-\phi)-\hat{n}|}{2}.
 \end{equation}
 
-Enfin, le nombre d'évènements dans chaque bin de la distribution de $\phi_{CP}$ pour les évènements $Z\to\tau\tau$ et tous ceux impliquant deux leptons tau correctement identifiés est porté à la valeur moyenne d'évènements $\hat{n}$ de la distribution. La figure \ref{smoothing} schématise chacune de ces procédures.
+Enfin, le nombre d'évènements dans chaque bin de la distribution de $\phi_{CP}$ pour les évènements $Z\to\tau\tau$ et tous ceux impliquant deux leptons tau correctement identifiés est porté au nombre moyen d'évènements $\hat{n}$ de la distribution. La figure \ref{smoothing} schématise chacune de ces procédures.
 
 \section{Résultats et conclusion}
 
-Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoiler les données dans la région de signal. Cette procédure vise à éviter l'introduction d'un biais statistique pour un échantillon donné en effectuant dans un premier temps une mesure basée sur les modèles de bruits de fond et de signal uniquement. La minimisation de la log-vraisemblance \ref{negLog} est d'abord réalisée dans un échantillon Asimov \cite{Cowan2011}, visant à simuler des données dans lesquelles les paramètres $\mu_V$, $\mu_{ggH}$ et $\vv{\theta}$ possèdent leur valeur nominale. Cette méthode donne une estimation de la sensibilité de la mesure et permet, pour l'hypothèse CP paire du modèle standard, de donner un intervalle de confiance dans lequel l'hypothèse CP impaire est exclue. Une variable de décision $\lambda(\alpha^{H\tau\tau})$ est introduite telle que :
+Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoiler les données dans la région de signal. Cette procédure vise à éviter l'introduction d'un biais statistique pour un échantillon donné en effectuant dans un premier temps une mesure basée sur les modèles simulés de bruits de fond et de signal uniquement. Dans les catégories de bruit de fond, les distributions du score de sortie du BDT dans l'intervalle $[0,1]$ sont utilisées en entrée de l'ajustement avec la répartition suivante :
+
+\begin{itemize}
+    \item[$\bullet$] $Z\to\tau\tau$ : 4 bins $[0.0,0.45,0.55,0.65,1.0]$
+    \item[$\bullet$] $JetFakes$ : 5 bins $[0.0,0.6,0.7,0.8,0.9,1.0]$ \\
+\end{itemize}
+
+Tous les évènements $\mu\tau_h$ sont considérés dans ces catégories, sans sélection sur l'état final $a_1^{3pr}+\mu$, afin de mieux contraindre la contribution de chaque bruit de fond. Dans la catégorie de signal, des distributions dites \textit{unrolled} de $\phi_{CP}$ sont utilisées avec une sélection du canal $a_1^{3pr}+\mu$ uniquement. Ces distributions consistent en une succession de distributions de $\phi_{CP}$ dans l'intervalle $[0,2\pi]$ dans plusieurs tranches de score de sortie du BDT.  
+
+\begin{figure}[!ht]
+        \centering
+        \includegraphics[scale=0.65]{Chapitre7/Images/histSigdataMC2018dp_postfit.pdf} 
+        \vspace{0.5ex}
+    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ accord entre données et simulation pour les données de 2018.}
+    \label{SIGcategorydp}
+\end{figure}
+
+La minimisation de la log-vraisemblance \ref{negLog} est d'abord réalisée dans un échantillon Asimov \cite{Cowan2011}, visant à simuler des données dans lesquelles les paramètres $\mu_V$, $\mu_{ggH}$ et $\vv{\theta}$ possèdent leur valeur nominale. Cette méthode donne une estimation de la sensibilité de la mesure et permet, pour l'hypothèse CP paire du modèle standard, de donner un intervalle de confiance dans lequel l'hypothèse CP impaire est exclue. Une variable de décision $\lambda(\alpha^{H\tau\tau})$ est introduite telle que :
 
 \begin{equation}
     \lambda(\alpha^{H\tau\tau})=-2\ln\frac{L(\alpha^{H\tau\tau})}{L(\widehat{\alpha^{H\tau\tau}})},
@@ -653,7 +719,7 @@ où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur que
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{}
+    \caption{Valeur attendue de $\alpha^{H\tau\tau}$ pour le Run 2 avec la \textit{decay plane method} à gauche et le vecteur polarimétrique à droite par minimisation de la variable de décision $\lambda(\alpha^{H\tau\tau})$.}
     \label{expectedscan}
 \end{figure}
 
@@ -667,36 +733,42 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
 
 \begin{figure}[]
         \centering
+        \begin{subfigure}[b]{\linewidth}
+        \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdpblind.pdf} 
-        \vspace{0.5ex}
     \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
-    \label{expectednuisancepv}
-\end{figure}
-
-\begin{figure}[]
+    \label{expectednuisancedp}
+            \vspace{10mm}
+    \end{subfigure}
+    \begin{subfigure}[b]{\linewidth}
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactspvblind.pdf} 
         \vspace{0.5ex}
-    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
-    \label{expectednuisancedp}
+    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
+    \label{expectednuisancepv}
+    \end{subfigure}
+    \caption{}
 \end{figure}
 
-La suite de la procédure consiste à vérifier les impacts observés, après l'ajustement aux données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, seules ces données seront dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. Ces impacts sont présentés dans les figures \ref{observednuisancedp} et \ref{observednuisancepv} pour la méthode de la decay plane et du vecteur polarimétrique respectivement. La qualité de l'ajustement (GOF, \textit{Goodness Of Fit}) dans chaque catégorie peut ensuite être vérifié à travers un modèle saturé (\textit{saturated} GOF). La méthode consiste à générer N modèles de données (\textit{toys}), chacun variant aléatoirement autour de la valeur nominale des modèles introduits dans chaque catégorie en tenant compte des paramètres de nuisance considérés. De cette façon, il est possible d'estimer la probabilité selon laquelle un ensemble de données aléatoire est capable de reproduire le modèle fournit. La figure \ref{saturatedGOF} présente les résultats de la qualité d'ajustement dans les catégories de bruit de fond et dans la catégorie de signal pour les deux méthodes considérées. La haute valeur de probabilité $p=0,805$ dans la catégorie $Z\to\tau\tau$ montre la bonne modélisation de ce bruit de fond, tandis qu'une valeur plus modérée $p=0,142$ est obtenue pour la catégorie \textit{jetFakes}. Dans la catégorie de signal, une haute valeur de probabilité $p=0,824$ est obtenue pour la \textit{decay plane method} tandis que celle pour le vecteur polarimétrique est nulle, traduisant un problème de modélisation pour ce dernier. Dans la suite, seule les données dans la catégorie de signal pour la \textit{decay plane method} sont dévoilées dans la figure \ref{SIGcategorydp}. Les distributions avant ajustement sont également présentées dans l'annexe \ref{annexA}. La distribution semble présenter une fluctuation en faveur de l'hypothèse CP impaire, confirmée par les résultats de la figure  \\
+La suite de la procédure consiste à vérifier les impacts observés, après l'ajustement aux données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, seules ces données seront dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. Ces impacts sont présentés dans les figures \ref{observednuisancedp} et \ref{observednuisancepv} pour la méthode de la decay plane et du vecteur polarimétrique respectivement. La qualité de l'ajustement (GOF, \textit{Goodness Of Fit}) dans chaque catégorie peut ensuite être vérifié à travers un modèle saturé (\textit{saturated} GOF). La méthode consiste à générer N modèles de données (\textit{toys}), chacun variant aléatoirement autour de la valeur nominale des modèles introduits dans chaque catégorie en tenant compte des paramètres de nuisance considérés. De cette façon, il est possible d'estimer la probabilité selon laquelle un ensemble de données aléatoire est capable de reproduire le modèle fournit. La figure \ref{saturatedGOF} présente les résultats de la qualité d'ajustement dans les catégories de bruit de fond et dans la catégorie de signal pour les deux méthodes considérées. La haute valeur de probabilité $p=0,805$ dans la catégorie $Z\to\tau\tau$ montre la bonne modélisation de ce bruit de fond, tandis qu'une valeur plus modérée $p=0,142$ est obtenue pour la catégorie \textit{jetFakes}. Dans la catégorie de signal, une haute valeur de probabilité $p=0,824$ est obtenue pour la \textit{decay plane method} tandis que celle pour le vecteur polarimétrique est nulle, traduisant un problème de modélisation pour ce dernier. La figure \ref{BKGcategories} présente la dis Dans la suite, seule les données dans la catégorie de signal pour la \textit{decay plane method} sont dévoilées dans la figure \ref{SIGcategorydp}. Les distributions avant ajustement sont également présentées dans l'annexe \ref{annexA}. La figure \ref{dp18ub} montre la valeur observée obtenue pour le paramètre $\alpha^{H\tau\tau}$ et de l'intensité de signal inclusive $\mu^{\tau\tau}$ ajustée en fixant $\mu_{V}=\mu_{ggH}=1$. La faible valeur $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$ obtenue lors de l'ajustement témoigne d'un accord des données avec le modèle de bruit de fond sans signal, et ayant pour effet de réduire le niveau de signal attendu après ajustement. Cet effet entraîne également l'observation d'une sensibilité nulle, l'ajustement étant alors incapable de différencier l'hypothèse CP paire de l'hypothèse CP impaire. \\
 
 \begin{figure}[]
         \centering
+        \begin{subfigure}[b]{\linewidth}
+        \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdp18.pdf} 
-        \vspace{0.5ex}
-    \caption{Impact observé des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
-    \label{observednuisancepv}
-\end{figure}
-
-\begin{figure}[]
+    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane dans les donées de 2018.}
+    \label{observednuisancedp}
+            \vspace{10mm}
+    \end{subfigure}
+    \begin{subfigure}[b]{\linewidth}
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactspv18.pdf} 
         \vspace{0.5ex}
-    \caption{Impact observé des 30 paramètres du nuisance principaux pour la méthode du vecteur polarimétrique.}
-    \label{observednuisancedp}
+    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane dans les données de 2018.}
+    \label{observednuisancepv}
+    \end{subfigure}
+    \caption{}
 \end{figure}
 
 \begin{figure}
@@ -704,13 +776,13 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \centering
         \includegraphics[scale=0.35]{Chapitre7/Images/htt_mt_1_2018-saturated.pdf} 
         \caption{} 
-        \vspace{0.5ex}
+        \vspace{20mm}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[scale=0.35]{Chapitre7/Images/htt_mt_2_2018-saturated.pdf} 
         \caption{} 
-        \vspace{0.5ex}
+        \vspace{20mm}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
@@ -741,7 +813,7 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{}
+    \caption{Distribution du score du BDT dans la catégorie \textit{jetFakes} (a) et $Z\to\tau\tau$ (b) pour le canal $\mu\tau_h$ et accord entre données et simulation pour les données de 2018.}
     \label{BKGcategories}
 \end{figure}
 
@@ -749,9 +821,30 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \centering
         \includegraphics[scale=0.65]{Chapitre7/Images/histSigdataMC2018dp_postfit.pdf} 
         \vspace{0.5ex}
-    \caption{}
+    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ accord entre données et simulation pour les données de 2018.}
     \label{SIGcategorydp}
 \end{figure}
+
+
+\begin{figure}[!ht]
+        \centering
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Chapitre7/Images/alpha18dpub.pdf} 
+    \caption{} 
+    \vspace{0.5ex}
+  \end{subfigure}%% 
+  \begin{subfigure}[b]{0.5\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Chapitre7/Images/mutautau18dpub.pdf} 
+    \caption{} 
+    \vspace{0.5ex}
+  \end{subfigure} 
+    \caption{Valeur observée de $\alpha^{H\tau\tau}$ (a) et valeur observée de $\mu^{\tau\tau}$ (b) pour les données de 2018 avec la \textit{decay plane method}.}
+    \label{dp18ub}
+\end{figure}
+
+La méthode du vecteur polarimétrique nécessite notamment la reconstruction du vertex secondaire du tau hadronique. La figure \ref{tauflight} montre toutefois qu'une erreur de modélisation existe dans sa reconstruction. L'accord entre les données et la simulation a été vérifié dans deux régions distinctes, la première lorsque $m_{\tau\tau}^{vis}<90$ GeV afin d'obtenir une région enrichie en évènements $Z\to\tau\tau$, et une seconde lorsque $m_{\tau\tau}^{vis}>90$ enrichie en évènements dans lesquels un jet est identifié comme tau hadronique. La seconde région présente un désaccord important, pouvant être à l'origine d'une erreur de modélisation de $\phi_{CP}$ et entraînant la valeur nulle de probabilité lors du test saturé dans la région de signal obtenue avec le vecteur polarimétrique. \\
 
 \begin{figure}
   \begin{subfigure}[b]{0.33\linewidth}
@@ -791,23 +884,7 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
     \caption{} 
     \vspace{0.5ex}
   \end{subfigure} 
+    \label{tauflight}
 \end{figure}
 
-
-\begin{figure}[!ht]
-        \centering
-  \begin{subfigure}[b]{0.33\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Chapitre7/Images/alpha18dpub.pdf} 
-    \caption{} 
-    \vspace{0.5ex}
-  \end{subfigure}%% 
-  \begin{subfigure}[b]{0.33\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Chapitre7/Images/TauFlightYfakes.png} 
-    \caption{} 
-    \vspace{0.5ex}
-  \end{subfigure} 
-    \caption{}
-    \label{SIGcategorydp}
-\end{figure}
+En conclusion, la méthode du vecteur polarimétrique offre une amélioration de l'ordre de $15\%$ sur la sensibilité attendue sur l'ensemble du Run 2 dans le canal $a_1^{3pr}+\mu$. La procédure de dévoilement des données a toutefois été stoppée après obtention d'une valeur de probabilité nulle dans la région de signal avec le vecteur polarimétrique sur les données de 2018. La modélisation satisfaisante des bruits de fond et de la région de signal avec la méthode de la \textit{decay plane} ont conduit à dévoiler les données de 2018 pour cette méthode uniquement. La proximité des données avec le modèle de bruit de fond sans signal entraîne l'observation d'une valeur d'intensité de signal inclusive $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$, réduisant le niveau de signal attendu après ajustement, et d'une sensibilité de mesure nulle indiquant une indifférenciation des hypothèses CP paire et impaire. Une erreur de modélisation du vertex secondaire du tau hadronique, nécessaire à la reconstruction du vecteur polarimétrique, pourrait être à l'origine de la mauvaise modélisation de $\phi_{CP}$ avec le vecteur polarimétrique.
