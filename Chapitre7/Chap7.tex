@@ -30,18 +30,19 @@ Cette section vise à présenter les méthodes de reconstruction des différents
 
 \subsection{Leptons}
 
-Les électrons et muons employés dans cette analyse sont reconstruits et identifiés par l'algorithme du flux de particules selon les méthodes décrites dans les sections \ref{MuonID} et \ref{EGammaID} respectivement. Les leptons taus sont reconstruits par l'algorithme HPS décrit dans la section \ref{TauID}. La mesure de l'état CP étant directement reliée au mode de désintégration du lepton tau, un algorithme d'identification assurant une bonne pureté est essentiel. La principale faiblesse de l'algorithme HPS est son inaptitude à correctement identifier les pions neutres et à faussement identifier les modes de désintégrations qui en contiennent. Un BDT utilisant en entrée le mode de désintégration HPS (HPS-DM) ainsi que plusieurs variables cinématiques issues du tau hadronique est alors employé afin de redéfinir un nouveau mode de désintégration noté MVA-DM \cite{mohammadphd,mvadm}. Cet algorithme est spécifiquement optimisé dans le but d'offrir la meilleure pureté dans chaque mode de désintégration. La figure~\ref{confusionMVADM} montre les matrices de confusion du MVA-DM normalisées en ligne et en colonne, et la figure~\ref{purityMVADM} montre une comparaison de l'efficacité et de la pureté entre les HPS-DM et les MVA-DM. Les résultats montrent notamment une légère perte d'efficacité dans les états finaux à un et trois pions chargés, au profit d'une meilleure efficacité pour les états finaux avec au moins un pion neutre et d'une amélioration globale de la pureté dans tous les modes de désintégration. \\
+Les électrons et muons employés dans cette analyse sont reconstruits et identifiés par l'algorithme du flux de particules selon les méthodes décrites dans les sections \ref{MuonID} et \ref{EGammaID} respectivement. Les leptons taus sont reconstruits par l'algorithme HPS décrit dans la section \ref{TauID}. La mesure de l'état CP étant directement reliée au mode de désintégration du lepton tau, un algorithme d'identification assurant une bonne pureté est essentiel. L'algorithme HPS présente une excellente efficacité, au détriment d'une pureté plus modérée dont la principale perte est liée à l'identification des pions neutres. Un BDT utilisant en entrée le mode de désintégration HPS (HPS-DM) ainsi que plusieurs variables cinématiques issues du tau hadronique est alors employé afin de redéfinir un nouveau mode de désintégration noté MVA-DM \cite{mohammadphd,mvadm}. Cet algorithme est spécifiquement optimisé dans le but d'offrir la meilleure pureté dans chaque mode de désintégration. La figure~\ref{confusionMVADM} montre les matrices de confusion du MVA-DM normalisées en ligne et en colonne, et la figure~\ref{purityMVADM} montre une comparaison de l'efficacité et de la pureté entre les HPS-DM et les MVA-DM. Les résultats montrent notamment une légère perte d'efficacité dans les états finals à un et trois pions chargés, au profit d'une meilleure efficacité pour les états finals avec au moins un pion neutre et d'une amélioration globale de la pureté dans tous les modes de désintégration. \\
 
 \begin{figure}
 \centering
     \includegraphics[scale=0.275]{Chapitre7/Images/confusionmatrixMVADM.png} 
-    \caption{Matrices de confusion des MVA-DM\cite{mvadm} de pureté (gauche) et d'efficacité (droite) \cite{mvadm}.}
+    \caption{Matrices de confusion des MVA-DM de pureté (gauche) et d'efficacité (droite) \cite{mvadm}.}
     \label{confusionMVADM}
 \end{figure} 
 
-\subsection{Jets}
+\subsection{Jets et MET}
+\label{MET}
 
-Les jets utilisés dans cette analyse sont issus de la reconstruction effectuée par l'algorithme de regroupement anti-$k_t$ décrit dans la section \ref{JetMetID} dans des cônes de taille $R=0,4$. Afin de réduire la contribution des jets issus des interactions de l'empilement, tous les candidats du flux de particules identifiés comme hadrons chargés et qui ne sont pas associés au vertex primaire sont omis par l'algorithme de regroupement. Par ailleurs, la réponse en énergie du détecteur n'étant pas linéaire, il est difficile d'établir un lien direct entre l'énergie mesurée d'un jet à celle des particules qui le compose. Pour cette raison, plusieurs corrections sont appliquées sur l'énergie mesurée des jets à la fois sur l'échelle (JES, \textit{Jet Energy Scale}) et la résolution (JER, \textit{Jet Energy Resolution}). Après correction, les critères de sélection suivants sont appliqués : 
+Les jets utilisés dans cette analyse sont issus de la reconstruction effectuée par l'algorithme de regroupement anti-$k_t$ décrit dans la section \ref{JetMetID} dans des cônes de taille $R=0,4$. Afin de réduire la contribution des jets issus des interactions de l'empilement, tous les candidats du flux de particules identifiés comme hadrons chargés et qui ne sont pas associés au vertex primaire sont omis par l'algorithme de regroupement. Par ailleurs, la réponse en énergie du détecteur n'étant pas linéaire, il est difficile d'établir un lien direct entre l'énergie mesurée d'un jet à celle des particules qui le composent. Pour cette raison, plusieurs corrections sont appliquées sur l'énergie mesurée des jets à la fois sur l'échelle (JES, \textit{Jet Energy Scale}) et la résolution (JER, \textit{Jet Energy Resolution}). Après correction, les critères de sélection suivants sont appliqués : 
 
 \begin{itemize}
     \bigskip
@@ -59,7 +60,7 @@ Un veto est également appliqué dans les données de 2017 sur les jets reconstr
     \bigskip
     \item[-] $p_T>20$ GeV et $|\eta|<2,4$,
     \smallskip
-    \item[-] Score \textit{deepCSV} > $0,6321$ (2016), $0,4941$ (2017), $0,4184$ (2018).
+    \item[-] Score \textit{deepCSV} > $0,6321$ (2016), $0,4941$ (2017), $0,4184$ (2018) \cite{DeepCSV}.
     \bigskip
 \end{itemize}
 
@@ -71,10 +72,7 @@ MVA-DM (bleu) et HPS-DM (orange) \cite{mvadm}.}
     \label{purityMVADM}
 \end{figure} 
 
-\subsection{MET}
-\label{MET}
-
-La MET utilisée est reconstruite par l'algorithme PUPPI, choisi pour sa meilleure performance face à l'empilement au lieu de la MET issue du flux de particules (PF MET) \cite{puppi}. Les corrections d'énergie des jets sont ensuite propagées à la MET de la façon suivante :
+La MET utilisée est reconstruite par l'algorithme PUPPI (\textit{pileup per particle identification}) \cite{puppi}. Ce dernier applique, évènement par évènement, un facteur d'échelle sur la quadri-impulsion de chaque particule selon sa vraisemblance de provenir de l'interaction principale ou de l'empilement. L'algorithme s'appuie sur les propriétés cinématiques de chaque particule en tenant compte de son environnement, puis écarte celles assimilées avec certitude à de l'empilement. La MET est ensuite recalculée au sein de l'évènement repondéré, puis les corrections d'énergie des jets sont ensuite propagées de la façon suivante :
 
 $$\vv{E}^{miss,corr}_T=\vv{E}^{miss}_T-\Sigma_{jets}\bigl(\vv{p}_T^{corr}-\vv{p}_T\bigr).$$
 
@@ -104,7 +102,7 @@ $$\vv{E}^{miss,corr}_T=\vv{E}^{miss}_T-\Sigma_{jets}\bigl(\vv{p}_T^{corr}-\vv{p}
     \label{PVreso}
 \end{figure}
 
-La reconstruction du vertex primaire (PV) permet de déterminer la position exacte de l'interaction proton-proton ayant donné lieu à un évènement et représente ainsi un enjeu crucial pour la bonne reconstruction de ce dernier. En particulier, certains éléments nécessaires à la reconstruction des observables CP tels que le paramètre d'impact ou le vecteur polarimétrique reposent sur la connaissance du vertex primaire. Deux étapes sont nécessaires durant lesquelles des ensembles de traces originaires d'un même vertex sont recherchés (regroupement), puis la meilleure estimation de la position du vertex est calculée pour chaque ensemble à partir des traces qu'il contient (ajustement). L'étape de regroupement est réalisée grâce à un algorithme basé sur le principe du \textit{deterministic annealing} (DA) \cite{annealing} visant à rechercher le minimum global d'un système possédant de nombreux degrés de liberté. Le vertex primaire est ensuite choisi en sélectionnant l'ensemble pour lequel la somme $\Sigma p_T^2$ de chaque trace est la plus grande. La position du vertex est ensuite déterminée par un ajustement des traces qui lui sont associées grâce à un algorithme nommé \textit{adaptative vertex fitter} \cite{adaptative}. Le temps de vol du lepton tau implique que ses produits de désintégration soient issus d'un vertex secondaire. Afin d'éviter un biais dans la reconstruction du vertex primaire, les traces identifiées comme provenant de la désintégration du tau sont retirées de l'ensemble lors de l'ajustement et la position du vertex est de nouveau ajustée. Une première estimation de la position du vertex est donnée par la méthode FSMW (\textit{Fraction of Sample Mode with Weights}) \cite{adaptative} avec une grande incertitude puis les traces sont ordonnées selon leur distance à cette position. Les traces sont ensuite ajoutées une par une au vertex et sa position est ajustée à chaque ajout par des filtres de Kalman. La nouvelle position du vertex est alors comparée à sa position initiale, et les traces sont pondérées selon leur compatibilité à cette nouvelle position dans le cas où l'écart avec la position initiale est significatif. Cette étape est ensuite répétée en partant de la position du vertex issue de l'itération précédente jusqu'à obtenir une position stable sur plusieurs itération, ou que le nombre maximum d'itération soit atteint. La position calculée lors de la dernière itération et l'incertitude qui lui est associée sont alors retenues. La résolution du vertex primaire peut être améliorée d'avantage en appliquant une contrainte sur la position du \textit{beamspot}, défini par le profil 3D de la zone d'interaction des faisceaux au point de collision et mesuré à partir d'une moyenne sur une grande quantité d'évènements \cite{adaptative}. Cette contrainte s'applique en choisissant la position du \textit{beamspot} comme position initiale du vertex lors de l'ajustement et remplace la méthode FSMW citée précédemment. La figure \ref{PVreso} montre que le retrait des traces associées au lepton tau avant ajustement impacte peu la résolution de reconstruction, tandis que l'ajout d'une contrainte sur la position du \textit{beamspot} l'améliore fortement selon les composantes $x$ et $y$. Le choix du vertex primaire dans le cadre de cette analyse est porté vers le vertex primaire réajusté sans traces avec une contrainte sur la position du \textit{beamspot}.
+La reconstruction du vertex primaire (PV) permet de déterminer la position exacte de l'interaction proton-proton ayant donné lieu à un évènement et représente ainsi un enjeu crucial pour la bonne reconstruction de ce dernier. En particulier, certains éléments nécessaires à la reconstruction des observables CP tels que le paramètre d'impact ou le vecteur polarimétrique reposent sur la connaissance du vertex primaire. Deux étapes sont nécessaires durant lesquelles des ensembles de traces originaires d'un même vertex sont recherchés (regroupement), puis la meilleure estimation de la position du vertex est calculée pour chaque ensemble à partir des traces qu'il contient (ajustement). L'étape de regroupement est réalisée grâce à un algorithme fondé sur le principe du \textit{deterministic annealing} (DA) \cite{annealing} visant à rechercher le minimum global d'un système possédant de nombreux degrés de liberté. Le vertex primaire est ensuite choisi en sélectionnant l'ensemble pour lequel la somme $\Sigma p_T^2$ de chaque trace est la plus grande. La position du vertex est ensuite déterminée par un ajustement des traces qui lui sont associées grâce à un algorithme nommé \textit{adaptative vertex fitter} \cite{adaptative}. Le temps de vol du lepton tau implique que ses produits de désintégration soient issus d'un vertex secondaire. Afin d'éviter un biais dans la reconstruction du vertex primaire, les traces identifiées comme provenant de la désintégration du tau sont retirées de l'ensemble lors de l'ajustement et la position du vertex est de nouveau ajustée. Une première estimation de la position du vertex est donnée par la méthode FSMW (\textit{Fraction of Sample Mode with Weights}) \cite{adaptative} avec une grande incertitude puis les traces sont ordonnées selon leur distance à cette position. Les traces sont ensuite ajoutées une par une au vertex et sa position est ajustée à chaque ajout par des filtres de Kalman. La nouvelle position du vertex est alors comparée à sa position initiale, et les traces sont pondérées selon leur compatibilité à cette nouvelle position dans le cas où l'écart avec la position initiale est significatif. Cette étape est ensuite répétée en partant de la position du vertex issue de l'itération précédente jusqu'à obtenir une position stable sur plusieurs itération, ou que le nombre maximum d'itération soit atteint. La position calculée lors de la dernière itération et l'incertitude qui lui est associée sont alors retenues. La résolution du vertex primaire peut être améliorée davantage en appliquant une contrainte sur la position du \textit{beamspot}, défini par le profil 3D de la zone d'interaction des faisceaux au point de collision et mesuré à partir d'une moyenne sur une grande quantité d'évènements \cite{adaptative}. Cette contrainte s'applique en choisissant la position du \textit{beamspot} comme position initiale du vertex lors de l'ajustement et remplace la méthode FSMW citée précédemment. La figure \ref{PVreso} montre que le retrait des traces associées au lepton tau avant ajustement impacte peu la résolution de reconstruction, tandis que l'ajout d'une contrainte sur la position du \textit{beamspot} l'améliore fortement selon les composantes $x$ et $y$. Le choix du vertex primaire dans le cadre de cette analyse est porté vers le vertex primaire réajusté sans traces issues du lepton tau avec une contrainte sur la position du \textit{beamspot}.
 
 \subsection{Paramètre d'impact}
 \label{IPreco}
@@ -324,7 +322,7 @@ L'échelle d'énergie du tau, appelée TES (\textit{Tau Energy Scale}), apporte 
 
 \subsubsection{\ding{95} Échelle d'énergie du muon}
 
-Le biais sur la mesure de l'impulsion des muons est généralement corrigé par application de la méthode de Rochester qui s'appuie sur une comparaison de la masse invariante di-muons autour du pic de résonance du boson Z dans des données $Z\rightarrow\mu\mu$ réelles et simulées. Cette analyse ne s'appuyant pas sur une mesure précise de masse invariante di-muons, une simple incertitude sur l'énergie du muon variant de $0,4\%$ à $2,7\%$ en fonction de sa pseudo-rapidité est appliquée.
+Le biais sur la mesure de l'impulsion des muons est généralement corrigé par application de la méthode de Rochester \cite{Rochester} qui s'appuie sur une comparaison de la masse invariante di-muons autour du pic de résonance du boson Z dans des données $Z\rightarrow\mu\mu$ réelles et simulées. Cette analyse ne s'appuyant pas sur une mesure précise de masse invariante di-muons, une simple incertitude sur l'énergie du muon variant de $0,4\%$ à $2,7\%$ en fonction de sa pseudo-rapidité est appliquée.
 
 \subsubsection{\ding{95} Efficacité d'identification des taus hadroniques}
 
@@ -332,11 +330,11 @@ Des différences sont observées entre les données et la simulation pour l'effi
 
 \subsubsection{\ding{95} Correction d'identification $l\rightarrow\tau_h$}
 
-Des corrections sont appliquées aux évènements simulés dans lesquels un muon ou un électron est faussement identifié comme tau hadronique afin de tenir compte des différences d'efficacité des discriminants de \textit{Deeptau} entre données et simulation. Ces corrections ne sont pas appliquées aux évènements \textit{embedded} qui sont issus des données.
+Des corrections sont appliquées aux évènements simulés dans lesquels un muon ou un électron est faussement identifié comme tau hadronique afin de tenir compte des différences d'efficacité des discriminants de \textit{DeepTau} entre données et simulation. Ces corrections ne sont pas appliquées aux évènements \textit{embedded} qui sont issus des données.
 
 \subsubsection{\ding{95} Correction du recul de la MET}
 
-Dans un évènement $Z\rightarrow ll$, le recul $\vv{u}_T$ est défini comme la somme des impulsions transverses visibles à l'exception de celle de la paire de leptons $\vv{p}_T$ et se relie à l'impulsion transverse manquante $\vv{p}^{miss}_T$ selon $$\vv{p}^{miss}_T=-(\vv{u}_T+\vv{p}_T).$$ La mauvaise modélisation du recul hadronique dans les échantillons Monte Carlo de processus Drell-Yann, W+jets ou de signal entraîne ainsi une mauvaise modélisation de la MET.
+Dans un évènement $Z\rightarrow ll$, le recul $\vv{u}_T$ est défini comme la somme des impulsions transverses visibles à l'exception de celle de la paire de leptons $\vv{p}_T$ et se relie à l'impulsion transverse manquante $\vv{p}^{miss}_T$ selon $$\vv{p}^{miss}_T=-(\vv{u}_T+\vv{p}_T).$$ La mauvaise modélisation du recul hadronique dans les échantillons Monte Carlo de processus Drell-Yan, W+jets ou de signal entraîne ainsi une mauvaise modélisation de la MET.
 
 \subsubsection{\ding{95} Repondération de l'empilement}
 
@@ -344,7 +342,7 @@ Afin de tenir compte des conditions réelles d'empilement, les évènements MC s
 
 \subsubsection{\ding{95} Repondération de l'impulsion transverse et de la masse du $Z$}
 
-Les évènements issus des échantillons Monte Carlo de Drell-Yann sont pondérés afin de tenir compte des différences dans les distributions d'impulsion transverse et de masse invariante du boson Z entre simulation et données. Ces corrections sont dérivées dans des régions enrichies en évènements $Z\rightarrow\mu\mu$ connus pour être reconstruits avec précision.
+Les évènements issus des échantillons Monte Carlo de Drell-Yan sont pondérés afin de tenir compte des différences dans les distributions d'impulsion transverse et de masse invariante du boson Z entre simulation et données. Ces corrections sont dérivées dans des régions enrichies en évènements $Z\rightarrow\mu\mu$ connus pour être reconstruits avec précision.
 
 \subsubsection{\ding{95} Repondération de l'impulsion transverse du quark top}
 
@@ -392,7 +390,7 @@ représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour 
 \section{Classification des évènements}
 \label{BDTclassifier}
 
-La classification des évènements est produite par un arbre de décision boosté multi-classe entraîné avec la librairie \textsc{XGBoost} \cite{XGboost}. Les évènements sont ainsi classifiés selon trois catégories : \\
+La classification des évènements est produite par un arbre de décision boosté multi-classes entraîné avec la librairie \textsc{XGBoost} \cite{XGboost}. Les évènements sont ainsi classifiés selon trois catégories : \\
 
 \begin{itemize}
     \item[$\bullet$] Higgs : processus de signal $H\to\tau\tau$ regroupant les modes de production $ggH$, $VBF$ et $VH$.
@@ -402,7 +400,7 @@ La classification des évènements est produite par un arbre de décision boost�
     \item[$\bullet$] JetFakes : processus contenant au moins un faux lepton $\tau$. \\
 \end{itemize}
 
-L'entraînement est réalisé avec des données de 2018 simultanément sur des évènements $H\to\tau\tau$ issus d'échantillons simulés ($ggH$, $VBF$, $VH$) pour la première catégorie, sur des évènements Drell-Yann issus d'échantillons \textit{embedded} pour la seconde, et sur une région des données dans laquelle la paire identifiée est de même signe ou sur des évènements dans lesquels au moins un des taus n'est pas correctement identifié à partir d'échantillons simulés ($W$+jets, $t\overline{t}$, $VV$). La liste des variables utilisées en entrée de l'entraînement est donnée ci-dessous : \\
+Lors de l'analyse initiale des données du Run 2 \cite{Htautau}, la classification des évènements dans les canaux semi-leptoniques a été réalisée à l'aide d'un réseau de neurones  produisant trois catégories similaires. L'indisponibilité de ce dernier suite à une perte des données associées ont conduit au développement d'un BDT pour les besoins propres de cette thèse avec un nouvel entraînement. Ce dernier est réalisé avec des données de 2018 simultanément sur des évènements $H\to\tau\tau$ issus d'échantillons simulés ($ggH$, $VBF$, $VH$) pour la première catégorie, sur des évènements Drell-Yan issus d'échantillons \textit{embedded} pour la seconde, et sur une région des données dans laquelle la paire identifiée est de même signe ou sur des évènements dans lesquels au moins un des taus n'est pas correctement identifié à partir d'échantillons simulés ($W$+jets, $t\overline{t}$, $VV$). La liste des variables utilisées en entrée de l'entraînement est donnée ci-dessous : \\
 
 \begin{itemize}
     \item[$\bullet$] $p_T^{\mu}$ : impulsion transverse du muon.
@@ -468,7 +466,7 @@ La classification des évènements présentées dans la section \ref{BDTclassifi
   \mu=\kappa_{\tau}^2+\tilde{\kappa}_{\tau}^2.
 \end{equation}
 
-L'ajustement utilise en entrée une distribution dite \textit{unrolled} de l'observable $phi_{CP}$ dans le canal $a_1^{3pr}+\mu$ à partir des évènements de la catégorie de signal telle que présentée dans la figure \ref{unrolled}. Ces distributions sont obtenues à partir d'une distribution de $phi_{CP}$ répétée dans plusieurs intervalles de score. 
+L'ajustement utilise en entrée une distribution dite \textit{unrolled} de l'observable $\phi_{CP}$ dans le canal $a_1^{3pr}+\mu$ à partir des évènements de la catégorie de signal telle que présentée dans la figure \ref{unrolled}. Ces distributions sont obtenues à partir d'une distribution de $\phi_{CP}$ répétée dans plusieurs intervalles de score. 
 
 \subsection{Modèle d'ajustement}
 
@@ -685,17 +683,18 @@ Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoi
 
 \begin{itemize}
     \item[$\bullet$] $Z\to\tau\tau$ : 4 bins $[0.0,0.45,0.55,0.65,1.0]$
+    \smallskip
     \item[$\bullet$] $JetFakes$ : 5 bins $[0.0,0.6,0.7,0.8,0.9,1.0]$ \\
 \end{itemize}
 
-Tous les évènements $\mu\tau_h$ sont considérés dans ces catégories, sans sélection sur l'état final $a_1^{3pr}+\mu$, afin de mieux contraindre la contribution de chaque bruit de fond. Dans la catégorie de signal, des distributions dites \textit{unrolled} de $\phi_{CP}$ sont utilisées avec une sélection du canal $a_1^{3pr}+\mu$ uniquement. Ces distributions consistent en une succession de distributions de $\phi_{CP}$ dans l'intervalle $[0,2\pi]$ dans plusieurs tranches de score de sortie du BDT.  
+Tous les évènements $\mu\tau_h$ sont considérés dans ces catégories, sans sélection sur l'état final $a_1^{3pr}+\mu$, afin de mieux contraindre la contribution de chaque bruit de fond. Dans la catégorie de signal, des distributions dites \textit{unrolled} de $\phi_{CP}$ sont utilisées avec une sélection du canal $a_1^{3pr}+\mu$ uniquement. Ces distributions consistent en une succession de distributions de 4 bins de $\phi_{CP}$ dans l'intervalle $[0,2\pi]$ dans plusieurs tranches de score de sortie du BDT. La figure \ref{SIGcategorypv} présente cette distribution pour le vecteur polarimétrique dans laquelle les données sont masquées. \\
 
 \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.65]{Chapitre7/Images/histSigdataMC2018dp_postfit.pdf} 
+        \includegraphics[scale=0.5]{Chapitre7/Images/histSigdataMC2018pv_prefitblind.pdf} 
         \vspace{0.5ex}
-    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ accord entre données et simulation pour les données de 2018.}
-    \label{SIGcategorydp}
+    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ avec le vecteur polarimétrique pour 2018. Les 6 distributions de 4 bins de $\phi_{CP}$ sont réparties selon les intervalles $[0.0,0.45,0.6,0.7,0.8,0.9,1.0$] du score.}
+    \label{SIGcategorypv}
 \end{figure}
 
 La minimisation de la log-vraisemblance \ref{negLog} est d'abord réalisée dans un échantillon Asimov \cite{Cowan2011}, visant à simuler des données dans lesquelles les paramètres $\mu_V$, $\mu_{ggH}$ et $\vv{\theta}$ possèdent leur valeur nominale. Cette méthode donne une estimation de la sensibilité de la mesure et permet, pour l'hypothèse CP paire du modèle standard, de donner un intervalle de confiance dans lequel l'hypothèse CP impaire est exclue. Une variable de décision $\lambda(\alpha^{H\tau\tau})$ est introduite telle que :
@@ -709,13 +708,13 @@ où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur que
 \begin{figure}[!ht]
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[scale=0.35]{Chapitre7/Images/alpharun2dp.pdf} 
+        \includegraphics[scale=0.3]{Chapitre7/Images/alpharun2dp.pdf} 
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[scale=0.35]{Chapitre7/Images/alpharun2pv.pdf} 
+        \includegraphics[scale=0.3]{Chapitre7/Images/alpharun2pv.pdf} 
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
@@ -729,7 +728,7 @@ Dans un second temps, l'impact des paramètres de nuisance sur le résultat atte
     \frac{\hat{\theta}-\theta_0}{\Delta\theta},
 \end{equation}
 
-où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustement, $\theta_0$ sa valeur nominale et $\Delta\theta$ son erreur associée. Dans le cas des résultats attendus, chaque paramètre est fixé à sa valeur nominale lors de l'ajustement et chaque pull est ainsi centré sur $0$. La restriction d'un pull à l'intérieur de l'intervalle $\bigl[-1,+1\bigr]$ indique une contrainte supplémentaire appliquée sur le paramètre lors de l'ajustement et une potentielle surestimation initiale de ce dernier. D'après ces résultats, la méthode du vecteur polarimétrique montre une plus grande sensibilité aux variations des incertitudes systématiques tandis que la méthode de la decay plane est d'avantage sensible aux incertitudes statistiques dites \textit{bin-by-bin}. \\
+où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustement, $\theta_0$ sa valeur nominale et $\Delta\theta$ son erreur associée. Dans le cas des résultats attendus, chaque paramètre est fixé à sa valeur nominale lors de l'ajustement et chaque pull est ainsi centré sur $0$. La restriction d'un pull à l'intérieur de l'intervalle $\bigl[-1,+1\bigr]$ indique une contrainte supplémentaire appliquée sur le paramètre lors de l'ajustement et une potentielle surestimation initiale de ce dernier. D'après ces résultats, la méthode du vecteur polarimétrique montre une plus grande sensibilité aux variations des incertitudes systématiques tandis que la méthode de la decay plane est davantage sensible aux incertitudes statistiques dites \textit{bin-by-bin}. \\
 
 \begin{figure}[]
         \centering
@@ -884,6 +883,7 @@ La méthode du vecteur polarimétrique nécessite notamment la reconstruction du
     \caption{} 
     \vspace{0.5ex}
   \end{subfigure} 
+  \caption{Distribution de la distance entre le vertex secondaire et le vertex primaire pour les trois coordonnées cartésiennes dans le canal $\mu\tau_h$. En haut : région enrichie en évènements $Z\to\tau\tau$ ($m^{vis}_{\tau\tau}<90$ GeV). En bas: région enrichie en évènements avec un jet identifié comme tau hadronique ($m^{vis}_{\tau\tau}>90$ GeV).}
     \label{tauflight}
 \end{figure}
 
