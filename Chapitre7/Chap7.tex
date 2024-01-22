@@ -42,7 +42,7 @@ Les électrons et muons employés dans cette analyse sont reconstruits et identi
 \subsection{Jets et MET}
 \label{MET}
 
-Les jets utilisés dans cette analyse sont issus de la reconstruction effectuée par l'algorithme de regroupement anti-$k_t$ décrit dans la section \ref{JetMetID} dans des cônes de taille $R=0,4$. Afin de réduire la contribution des jets issus des interactions de l'empilement, tous les candidats du flux de particules identifiés comme hadrons chargés et qui ne sont pas associés au vertex primaire sont omis par l'algorithme de regroupement. Par ailleurs, la réponse en énergie du détecteur n'étant pas linéaire, il est difficile d'établir un lien direct entre l'énergie mesurée d'un jet à celle des particules qui le composent. Pour cette raison, plusieurs corrections sont appliquées sur l'énergie mesurée des jets à la fois sur l'échelle (JES, \textit{Jet Energy Scale}) et la résolution (JER, \textit{Jet Energy Resolution}). Après correction, les critères de sélection suivants sont appliqués : 
+Les jets utilisés dans cette analyse sont issus de la reconstruction effectuée par l'algorithme de regroupement anti-$k_t$ décrit dans la section \ref{JetMetID} dans des cônes de taille $R=0,4$. Afin de réduire la contribution des jets issus des interactions de l'empilement, tous les candidats du flux de particules identifiés comme hadrons chargés et qui ne sont pas associés au vertex primaire sont omis par l'algorithme de regroupement. Par ailleurs, la réponse en énergie du détecteur n'étant pas linéaire, il est difficile d'établir un lien direct entre l'énergie mesurée d'un jet à celle des particules qui le composent. Pour cette raison, plusieurs corrections sont appliquées sur l'énergie mesurée des jets à la fois sur l'échelle (JES, \textit{jet energy scale}) et la résolution (JER, \textit{jet energy resolution}) \cite{JESJER}. Après correction, les critères de sélection suivants sont appliqués : 
 
 \begin{itemize}
     \bigskip
@@ -313,6 +313,7 @@ De plus, la paire sélectionnée doit rencontrer les critères suivants :
 Un évènement est rejeté si il contient au moins un jet de quark b. Enfin, chaque muon doit être associé à un objet issu du système de déclenchement et posséder une distance relative avec ce dernier $\Delta R<0,5$. Des coupures cinématiques supplémentaires dépendantes du chemin HLT sont également appliquées afin d'assurer une sélection des évènements dans la région de haute efficacité du système de déclenchement. Si l'évènement est associé à un chemin \textit{SingleMuonX}, le muon doit posséder une impulsion transverse supérieure d'au moins $1$ GeV à la coupure $X$ et $|\eta_{\mu}|<2,1$. Si l'évènement est associé à un chemin \textit{MuonXTauY}, le même principe s'applique sur le muon et une coupure similaire s'applique également sur le tau hadronique avec une valeur de $5$ GeV au dessus de la valeur $Y$ et $|\eta_{\tau_h}|<2,1$.
 
 \section{Corrections des échantillons Monte Carlo}
+\label{corrections}
 
 Afin d'améliorer la description des données par les échantillons Monte Carlo, des corrections sont appliquées sous forme de poids évènement par évènement. Cette sous partie présente une description de ces corrections.
 
@@ -326,7 +327,7 @@ Le biais sur la mesure de l'impulsion des muons est généralement corrigé par 
 
 \subsubsection{\ding{95} Efficacité d'identification des taus hadroniques}
 
-Des différences sont observées entre les données et la simulation pour l'efficacité de reconstruction et d'identification des taus hadroniques. Pour prendre en compte ces déviations, des corrections issues de deux catégories d'impulsion transverse du $\tau_h$ ($p_{T}>40$ GeV et $p_T<40$ GeV) et de cinq catégories de MVA-DM (0,1,2,10 et 11) sont appliquées. La méthode de dérivation de ces corrections est décrite dans l'annexe~\ref{annexB}.
+Des différences sont observées entre les données et la simulation pour l'efficacité de reconstruction et d'identification des taus hadroniques. Pour prendre en compte ces déviations, des corrections issues de deux catégories d'impulsion transverse du $\tau_h$ ($p_{T}>40$ GeV et $p_T<40$ GeV) et de cinq catégories de MVA-DM (0,1,2,10 et 11) sont appliquées.
 
 \subsubsection{\ding{95} Correction d'identification $l\rightarrow\tau_h$}
 
@@ -385,7 +386,7 @@ avec
     f_i=\frac{n_i}{\sum_j n_j},
 \end{equation}
 
-représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour le processus $i$ sur le nombre d'évènements total contenant un $j\rightarrow\tau_h$ pour tous les processus dans l'AR.  
+représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour le processus $i$ sur le nombre d'évènements total contenant un $j\rightarrow\tau_h$ pour tous les processus dans l'AR. Un BDT multi-classes est également utilisé pour améliorer la séparation entre les processus ($W$+jets, QCD, $t\overline{t})$. Un score est attribué à chacune des trois catégories, et dont la somme est unitaire, afin de repondérer le facteur $\overline{FF_i}$ de la catégorie correspondante. 
 
 \section{Classification des évènements}
 \label{BDTclassifier}
@@ -393,38 +394,38 @@ représentant la fraction d'évènements contenant un $j\rightarrow\tau_h$ pour 
 La classification des évènements est produite par un arbre de décision boosté multi-classes entraîné avec la librairie \textsc{XGBoost} \cite{XGboost}. Les évènements sont ainsi classifiés selon trois catégories : \\
 
 \begin{itemize}
-    \item[$\bullet$] Higgs : processus de signal $H\to\tau\tau$ regroupant les modes de production $ggH$, $VBF$ et $VH$.
-    \smallskip
-    \item[$\bullet$] $Z\to\tau\tau$ : processus contenant deux leptons $\tau$ correctement identifiés.
-    \smallskip
-    \item[$\bullet$] JetFakes : processus contenant au moins un faux lepton $\tau$. \\
+    \item[$\bullet$] \textbf{Higgs} : processus de signal $H\to\tau\tau$ regroupant les modes de production $ggH$, $VBF$ et $VH$.
+    \medskip
+    \item[$\bullet$] $\pmb{Z\to\tau\tau}$ : processus contenant deux leptons $\tau$ correctement identifiés.
+    \medskip
+    \item[$\bullet$] \textbf{JetFakes} : processus contenant au moins un faux lepton $\tau$. \\
 \end{itemize}
 
 Lors de l'analyse initiale des données du Run 2 \cite{Htautau}, la classification des évènements dans les canaux semi-leptoniques a été réalisée à l'aide d'un réseau de neurones  produisant trois catégories similaires. L'indisponibilité de ce dernier suite à une perte des données associées ont conduit au développement d'un BDT pour les besoins propres de cette thèse avec un nouvel entraînement. Ce dernier est réalisé avec des données de 2018 simultanément sur des évènements $H\to\tau\tau$ issus d'échantillons simulés ($ggH$, $VBF$, $VH$) pour la première catégorie, sur des évènements Drell-Yan issus d'échantillons \textit{embedded} pour la seconde, et sur une région des données dans laquelle la paire identifiée est de même signe ou sur des évènements dans lesquels au moins un des taus n'est pas correctement identifié à partir d'échantillons simulés ($W$+jets, $t\overline{t}$, $VV$). La liste des variables utilisées en entrée de l'entraînement est donnée ci-dessous : \\
 
 \begin{itemize}
     \item[$\bullet$] $p_T^{\mu}$ : impulsion transverse du muon.
-    \smallskip
+    \medskip
     \item[$\bullet$] $p_T^{\tau_h}$ : impulsion transverse du tau hadronique.
-    \smallskip
+    \medskip
     \item[$\bullet$] $m_{\tau\tau}$ : masse invariante de la paire $\tau\tau$ reconstruite avec FastMTT.
-    \smallskip
+    \medskip
     \item[$\bullet$] $m_{\tau\tau}^{vis}$ : masse invariante de la paire $\mu\tau_h$
-    \smallskip
+    \medskip
     \item[$\bullet$] $\Delta\eta(jj)$ : différence $\Delta\eta$ entre la paire de jets de plus haute impulsion transverse.
-    \smallskip
+    \medskip
     \item[$\bullet$] $p_T(jj)$ : impulsion transverse de la paire de jets de plus haute impulsion transverse.
-    \smallskip
+    \medskip
     \item[$\bullet$] $m(jj)$ : masse invariante de la paire de jets de plus haute impulsion transverse.
-    \smallskip
+    \medskip
     \item[$\bullet$] $p_T^{\tau\tau}$ : impulsion transverse de la paire $\mu\tau_h$.
-    \smallskip
+    \medskip
     \item[$\bullet$] Leading jet $p_T$ : impulsion transverse du jet de plus haute impulsion transverse.
-    \smallskip
+    \medskip
     \item[$\bullet$] Subleading jet $p_T$ : impulsion transverse du second jet de plus haute impulsion transverse.
-    \smallskip
+    \medskip
     \item[$\bullet$] $N$ jets : nombre de jets.
-    \smallskip
+    \medskip
     \item[$\bullet$] $p_T^{mis}$ : impulsion transverse de la MET.
     \smallskip
     \item[$\bullet$] $m_T^{\mu+MET}$ : masse transverse du système $\mu$+MET. \\
@@ -433,29 +434,6 @@ Lors de l'analyse initiale des données du Run 2 \cite{Htautau}, la classificati
 Les figures \ref{page1} à \ref{page4} présentent les distributions de chacune de ces variables pour les trois années de prise de données du Run 2 dans le canal $\mu\tau_h$ ainsi que l'accord entre données et simulation. Enfin la figure \ref{BDTscores} présente la distribution du score de sortie du BDT pour chaque catégorie.
 
 \input{Chapitre7/Images/CtrlPlots/ctrlplots}
-
-\begin{figure}[!ht]
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreJetFakes.png} 
-        \caption{} 
-        \vspace{0.5ex}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreZTT.png} 
-        \caption{} 
-        \vspace{0.5ex}
-    \end{subfigure}
-        \begin{subfigure}[b]{\linewidth}
-        \centering
-        \includegraphics[scale=0.25]{Chapitre7/Images/CtrlPlots/2018/BDTscoreHiggs.png} 
-        \caption{} 
-        \vspace{0.5ex}
-    \end{subfigure}
-    \caption{Distribution du score de sortie du BDT dans la catégorie Jet Fakes (a), $Z\rightarrow\tau\tau$ Embed (b) et Higgs (c) pour les données de 2018. Les données sont masquées dans la troisième catégorie dans laquelle le signal est attendu.}
-    \label{BDTscores}
-\end{figure}
 
 \section{Extraction de $\alpha^{H\tau\tau}$}
 \label{extract}
@@ -466,7 +444,23 @@ La classification des évènements présentées dans la section \ref{BDTclassifi
   \mu=\kappa_{\tau}^2+\tilde{\kappa}_{\tau}^2.
 \end{equation}
 
-L'ajustement utilise en entrée une distribution dite \textit{unrolled} de l'observable $\phi_{CP}$ dans le canal $a_1^{3pr}+\mu$ à partir des évènements de la catégorie de signal telle que présentée dans la figure \ref{unrolled}. Ces distributions sont obtenues à partir d'une distribution de $\phi_{CP}$ répétée dans plusieurs intervalles de score. 
+Dans les catégories de bruit de fond ($Z\to\tau\tau$, JetFakes) les distributions du score de sortie du BDT dans l'intervalle $[0,1]$ sont utilisées en entrée de l'ajustement avec la répartition suivante :
+
+\begin{itemize}
+    \item[$\bullet$] $Z\to\tau\tau$ : 4 bins $[0.0,0.45,0.55,0.65,1.0]$
+    \smallskip
+    \item[$\bullet$] JetFakes : 5 bins $[0.0,0.6,0.7,0.8,0.9,1.0]$ \\
+\end{itemize}
+
+Tous les évènements $\mu\tau_h$ sont considérés dans ces catégories, sans sélection sur l'état final $a_1^{3pr}+\mu$, afin de mieux contraindre la contribution de chaque bruit de fond. Dans la catégorie de signal, des distributions dites \textit{unrolled} de $\phi_{CP}$ sont utilisées avec une sélection du canal $a_1^{3pr}+\mu$ uniquement. Ces distributions consistent en une succession de distributions de 4 bins de $\phi_{CP}$ dans l'intervalle $[0,2\pi]$ dans plusieurs tranches de score de sortie du BDT. La figure \ref{SIGcategorypv} présente cette distribution pour la méthode du vecteur polarimétrique dans laquelle les données sont masquées. \\
+
+\begin{figure}[!ht]
+        \centering
+        \includegraphics[scale=0.5]{Chapitre7/Images/histSigdataMC2018pv_prefitblind.pdf} 
+        \vspace{0.5ex}
+    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ avec la méthode du vecteur polarimétrique pour 2018. Les 6 distributions de 4 bins de $\phi_{CP}$ sont réparties selon les intervalles $[0.0,0.45,0.6,0.7,0.8,0.9,1.0$] du score.}
+    \label{SIGcategorypv}
+\end{figure}
 
 \subsection{Modèle d'ajustement}
 
@@ -479,7 +473,7 @@ La section \ref{CPsim} présente comment la distribution de $\phi_{CP}$ peut êt
      & + 2\sin\bigl(\alpha^{H\tau\tau}\bigr)\cos\bigl(\alpha^{H\tau\tau}\bigr)\left(\frac{d\sigma^{CP-mix}}{d\phi_{CP}}\right)_i\Biggr],
 \end{align}
 
-où $i$ désigne chaque mode de production du boson de Higgs, $\mathcal{L}$ désigne la luminosité intégrée et $\mu_i$ représente l'intensité de signal pour chaque mode de production. Cette dernière s'exprime sous la forme $$\mu_i=\mu_{ggH/V}\times\mathcal{B}^{\tau\tau},$$ où $\mu_{ggH}$ est l'intensité de signal propre au mode de production par fusion de gluons ($ggH$),  $\mu_{V}$ celle des modes de production VBF, $WH$ et $ZH$, et $\mathcal{B}^{\tau\tau}$ est le rapport d'embranchement de la désintégration $H\to\tau\tau$. Le paramètre $\alpha^{H\tau\tau}$ constitue le paramètre d'intérêt de l'ajustement (POI) et sa valeur est laissée flottante dans l'intervalle $\bigl[-90^\circ,90^\circ\bigr]$. Les paramètres $\mu_{ggH/V}$ sont également laissés flottants lors de l'ajustement mais dans un intervalle restreint $\bigl[0,10\bigr]$. Enfin, le paramètre $\mathcal{B}^{\tau\tau}$ possède une forte corrélation avec les paramètres $\mu_{ggH/V}$ et agit sur la normalisation de tous les modèles de signal et est ainsi fixé à $1$ lors de l'ajustement. D'autres paramètres, appelés paramètres de nuisance et notés $\vv{\theta}$, agissent également sur la forme et la normalisation des bruits de fond et permettent d'intégrer à l'ajustement l'impact des incertitudes systématiques présentées dans la section \ref{systematics}. La fonction de vraisemblance utilisée pour l'ajustement s'écrit alors en fonction des paramètres précédents de la façon suivante d'après \cite{likelihood} :
+où $i$ désigne chaque mode de production du boson de Higgs, $\mathcal{L}$ désigne la luminosité intégrée et $\mu_i$ représente l'intensité de signal pour chaque mode de production. Cette dernière s'exprime sous la forme $$\mu_i=\mu_{ggH/V}\times\mathcal{B}^{\tau\tau},$$ où $\mu_{ggH}$ est l'intensité de signal propre au mode de production par fusion de gluons ($ggH$),  $\mu_{V}$ celle des modes de production VBF, $WH$ et $ZH$, et $\mathcal{B}^{\tau\tau}$ est le rapport d'embranchement de la désintégration $H\to\tau\tau$. Le paramètre $\alpha^{H\tau\tau}$ constitue le paramètre d'intérêt de l'ajustement (POI, \textit{parameter of interest}) et sa valeur est laissée flottante dans l'intervalle $\bigl[-90^\circ,90^\circ\bigr]$. Les paramètres $\mu_{ggH/V}$ sont également laissés flottants lors de l'ajustement mais dans un intervalle restreint $\bigl[0,10\bigr]$. Enfin, le paramètre $\mathcal{B}^{\tau\tau}$ possède une forte corrélation avec les paramètres $\mu_{ggH/V}$ et agit sur la normalisation de tous les modèles de signal et est ainsi fixé à $1$ lors de l'ajustement. D'autres paramètres, appelés paramètres de nuisance et notés $\vv{\theta}$, agissent également sur la forme et la normalisation des bruits de fond et permettent d'intégrer à l'ajustement l'impact des incertitudes systématiques présentées dans la section \ref{systematics}. La fonction de vraisemblance utilisée pour l'ajustement s'écrit alors en fonction des paramètres précédents de la façon suivante d'après \cite{likelihood} :
 
 \begin{align}
     L(\alpha^{H\tau\tau},&\mathcal{B}^{\tau\tau}=1,\mu_{ggH},\mu_{V},\vv{\theta}) = \\
@@ -565,7 +559,7 @@ Les incertitudes impactant également la forme des distributions sont présenté
 
 \subsubsection{\ding{95} Efficacité de reconstruction et d'identification des taus}
 
-Des incertitudes associées à l'efficacité d'identification et de reconstruction des leptons tau hadroniques proviennent des facteurs d'échelle correspondants dont la méthode de calcul est décrite dans l'annexe \ref{annexB}. Ces incertitudes sont appliquées dans chaque bin d'impulsion transverse ($p_{T}^{\tau_h}<40$, $p_{T}^{\tau_h}>40$) et chaque bin du mode de désintégration (MVA-DM=$0,1,2,10,11$). Elles sont traitées de façon décorrélée entre les années puisque l'origine de l'incertitude est principalement statistique mais de façon corrélée entre les canaux de désintégration ($\tau_h\tau_h, \mu\tau_h, e\tau_h$) puisque le même critère d'identification des jets est utilisé. L'incertitude comprend les erreurs de modélisation de la reconstruction HPS, des discriminants \textit{DeepTau} et MVA-DM. Une incertitude supplémentaire sur les effets de migration des modes de désintégration peut également être considérée, mais son effet sur la distribution de $\phi_{CP}$ étant négligeable cette dernière n'est pas prise en compte. Une incertitude de $3\%$ est également ajoutée pour prendre en compte les erreurs sur les discriminants contre les électrons et muons, traitée comme décorrélée entre les canaux de désintégration.
+Des incertitudes associées à l'efficacité d'identification et de reconstruction des leptons tau hadroniques proviennent des facteurs d'échelle correspondants. Ces incertitudes sont appliquées dans chaque bin d'impulsion transverse ($p_{T}^{\tau_h}<40$, $p_{T}^{\tau_h}>40$) et chaque bin du mode de désintégration (MVA-DM=$0,1,2,10,11$). Elles sont traitées de façon décorrélée entre les années puisque l'origine de l'incertitude est principalement statistique mais de façon corrélée entre les canaux de désintégration ($\tau_h\tau_h, \mu\tau_h, e\tau_h$) puisque le même critère d'identification des jets est utilisé. L'incertitude comprend les erreurs de modélisation de la reconstruction HPS, des discriminants \textit{DeepTau} et MVA-DM. Une incertitude supplémentaire sur les effets de migration des modes de désintégration peut également être considérée, mais son effet sur la distribution de $\phi_{CP}$ étant négligeable cette dernière n'est pas prise en compte. Une incertitude de $3\%$ est également ajoutée pour prendre en compte les erreurs sur les discriminants contre les électrons et muons, traitée comme décorrélée entre les canaux de désintégration.
 
 \subsubsection{\ding{95} Efficacité de déclenchement des taus}
 
@@ -624,7 +618,7 @@ Une incertitude correspondant à l'application de la correction sur l'impulsion 
 
 Une incertitude correspondant à l'application d'entre 0 et 2 fois la correction sur l'impulsion transverse du quark top est considérée avec une corrélation entre les années. 
 
-\subsubsection{Incertitudes sur les Fakes Factors}
+\subsubsection{\ding{95} Incertitudes sur les Fakes Factors}
 
 L'estimation du bruit de fond lié aux évènements dans lesquels un jet est faussement identifié comme tau hadronique est obtenue par la méthode des \textit{Fake Factors} décrite dans la section \ref{ff}. Cette méthode est à l'origine de plusieurs incertitudes systématiques traitées de la même façon que dans la référence \cite{Htautau}. 
 
@@ -679,31 +673,13 @@ Enfin, le nombre d'évènements dans chaque bin de la distribution de $\phi_{CP}
 
 \section{Résultats et conclusion}
 
-Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoiler les données dans la région de signal. Cette procédure vise à éviter l'introduction d'un biais statistique pour un échantillon donné en effectuant dans un premier temps une mesure basée sur les modèles simulés de bruits de fond et de signal uniquement. Dans les catégories de bruit de fond, les distributions du score de sortie du BDT dans l'intervalle $[0,1]$ sont utilisées en entrée de l'ajustement avec la répartition suivante :
-
-\begin{itemize}
-    \item[$\bullet$] $Z\to\tau\tau$ : 4 bins $[0.0,0.45,0.55,0.65,1.0]$
-    \smallskip
-    \item[$\bullet$] $JetFakes$ : 5 bins $[0.0,0.6,0.7,0.8,0.9,1.0]$ \\
-\end{itemize}
-
-Tous les évènements $\mu\tau_h$ sont considérés dans ces catégories, sans sélection sur l'état final $a_1^{3pr}+\mu$, afin de mieux contraindre la contribution de chaque bruit de fond. Dans la catégorie de signal, des distributions dites \textit{unrolled} de $\phi_{CP}$ sont utilisées avec une sélection du canal $a_1^{3pr}+\mu$ uniquement. Ces distributions consistent en une succession de distributions de 4 bins de $\phi_{CP}$ dans l'intervalle $[0,2\pi]$ dans plusieurs tranches de score de sortie du BDT. La figure \ref{SIGcategorypv} présente cette distribution pour le vecteur polarimétrique dans laquelle les données sont masquées. \\
-
-\begin{figure}[!ht]
-        \centering
-        \includegraphics[scale=0.5]{Chapitre7/Images/histSigdataMC2018pv_prefitblind.pdf} 
-        \vspace{0.5ex}
-    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ avec le vecteur polarimétrique pour 2018. Les 6 distributions de 4 bins de $\phi_{CP}$ sont réparties selon les intervalles $[0.0,0.45,0.6,0.7,0.8,0.9,1.0$] du score.}
-    \label{SIGcategorypv}
-\end{figure}
-
-La minimisation de la log-vraisemblance \ref{negLog} est d'abord réalisée dans un échantillon Asimov \cite{Cowan2011}, visant à simuler des données dans lesquelles les paramètres $\mu_V$, $\mu_{ggH}$ et $\vv{\theta}$ possèdent leur valeur nominale. Cette méthode donne une estimation de la sensibilité de la mesure et permet, pour l'hypothèse CP paire du modèle standard, de donner un intervalle de confiance dans lequel l'hypothèse CP impaire est exclue. Une variable de décision $\lambda(\alpha^{H\tau\tau})$ est introduite telle que :
+Une procédure d'\textit{unblinding} est opérée afin de progressivement dévoiler les données dans la région de signal. Cette procédure vise à éviter l'introduction d'un biais statistique pour un échantillon donné en effectuant dans un premier temps une mesure basée sur les modèles simulés de bruits de fond et de signal uniquement. Ces modèles comprennent l'entièreté des données simulées et \textit{embedded}, sur lesquelles sont appliquées toutes les corrections décrites dans la section \ref{corrections}, et tiennent également compte des incertitudes systématiques présentées dans la section \ref{systematics}. La bonne modélisation des données réelles est ensuite vérifiée à travers les distributions des variables d'entrée du BDT montrées dans les figures \ref{page1} à \ref{page4}. La minimisation de la log-vraisemblance \ref{negLog} est d'abord réalisée dans un échantillon Asimov \cite{Cowan2011}, visant à simuler des données dans lesquelles les paramètres $\mu_V$, $\mu_{ggH}$ et $\vv{\theta}$ possèdent leur valeur nominale. Cette méthode donne une estimation de la sensibilité de la mesure et permet, pour l'hypothèse CP paire du modèle standard, de donner un intervalle de confiance dans lequel l'hypothèse CP impaire est exclue. Une variable de décision $\lambda(\alpha^{H\tau\tau})$ est introduite telle que :
 
 \begin{equation}
     \lambda(\alpha^{H\tau\tau})=-2\ln\frac{L(\alpha^{H\tau\tau})}{L(\widehat{\alpha^{H\tau\tau}})},
 \end{equation}
 
-où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur quelconque de $\alpha^{H\tau\tau}$ et $L(\widehat{\alpha^{H\tau\tau}})$ celle pour $\alpha^{H\tau\tau}=0^{\circ}$. La figure \ref{expectedscan} présente un "balayage" (\textit{scan}) de $\lambda(\alpha^{H\tau\tau})$ pour $\alpha^{H\tau\tau}\in\bigl[-90^{\circ},+90^{\circ}\bigr]$ dans lequel un minimum est naturellement atteint pour $\alpha^{H\tau\tau}=0^{\circ}$. Les résultats attendus donnent alors une valeur de $\alpha^{H\tau\tau}=0\pm90^{\circ}$ pour la méthode du pion neutre (\textit{decay plane}) contre une valeur de $\alpha^{H\tau\tau}=0\pm66,4^{\circ}$ dans l'intervalle de confiance de $68\%$ pour le vecteur polarimétrique. L'hypothèse CP impaire est respectivement exclue avec une signification statistique de $0,94\sigma$ et $1,08\sigma$, représentant une amélioration de l'ordre de $15\%$ avec le vecteur polarimétrique. \\
+où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur quelconque de $\alpha^{H\tau\tau}$ et $L(\widehat{\alpha^{H\tau\tau}})$ celle pour $\alpha^{H\tau\tau}=0^{\circ}$. La figure \ref{expectedscan} présente un "balayage" (\textit{scan}) de $\lambda(\alpha^{H\tau\tau})$ pour $\alpha^{H\tau\tau}\in\bigl[-90^{\circ},+90^{\circ}\bigr]$ dans lequel un minimum est naturellement atteint pour $\alpha^{H\tau\tau}=0^{\circ}$. Les résultats attendus donnent alors une valeur de $\alpha^{H\tau\tau}=0\pm90^{\circ}$ pour la méthode du pion neutre (\textit{decay plane}) contre une valeur de $\alpha^{H\tau\tau}=0\pm66,4^{\circ}$ dans l'intervalle de confiance de $68\%$ pour la méthode du vecteur polarimétrique. L'hypothèse CP impaire est respectivement exclue avec une signification statistique de $0,94\sigma$ et $1,08\sigma$, représentant une amélioration de l'ordre de $15\%$ avec la méthode du vecteur polarimétrique. \\
 
 \begin{figure}[!ht]
     \begin{subfigure}[b]{0.5\linewidth}
@@ -718,7 +694,7 @@ où $L(\alpha^{H\tau\tau})$ est la fonction de vraisemblance pour une valeur que
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{Valeur attendue de $\alpha^{H\tau\tau}$ pour le Run 2 avec la \textit{decay plane method} à gauche et le vecteur polarimétrique à droite par minimisation de la variable de décision $\lambda(\alpha^{H\tau\tau})$.}
+    \caption{Valeur attendue de $\alpha^{H\tau\tau}$ pour le Run 2 avec la méthode de la decay plane à gauche et la méthode du vecteur polarimétrique à droite par minimisation de la variable de décision $\lambda(\alpha^{H\tau\tau})$.}
     \label{expectedscan}
 \end{figure}
 
@@ -735,7 +711,7 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
         \begin{subfigure}[b]{\linewidth}
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdpblind.pdf} 
-    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
+    \caption{Impact attendu des 30 paramètres de nuisance principaux pour la méthode de la decay plane pour le Run 2.}
     \label{expectednuisancedp}
             \vspace{10mm}
     \end{subfigure}
@@ -743,20 +719,20 @@ où $\hat{\theta}$ est la valeur observée du paramètre $\theta$ après ajustem
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactspvblind.pdf} 
         \vspace{0.5ex}
-    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane.}
+    \caption{Impact attendu des 30 paramètres de nuisance principaux pour la méthode du vecteur polarimétrique pour le Run 2.}
     \label{expectednuisancepv}
     \end{subfigure}
     \caption{}
 \end{figure}
 
-La suite de la procédure consiste à vérifier les impacts observés, après l'ajustement aux données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, seules ces données seront dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. Ces impacts sont présentés dans les figures \ref{observednuisancedp} et \ref{observednuisancepv} pour la méthode de la decay plane et du vecteur polarimétrique respectivement. La qualité de l'ajustement (GOF, \textit{Goodness Of Fit}) dans chaque catégorie peut ensuite être vérifié à travers un modèle saturé (\textit{saturated} GOF). La méthode consiste à générer N modèles de données (\textit{toys}), chacun variant aléatoirement autour de la valeur nominale des modèles introduits dans chaque catégorie en tenant compte des paramètres de nuisance considérés. De cette façon, il est possible d'estimer la probabilité selon laquelle un ensemble de données aléatoire est capable de reproduire le modèle fournit. La figure \ref{saturatedGOF} présente les résultats de la qualité d'ajustement dans les catégories de bruit de fond et dans la catégorie de signal pour les deux méthodes considérées. La haute valeur de probabilité $p=0,805$ dans la catégorie $Z\to\tau\tau$ montre la bonne modélisation de ce bruit de fond, tandis qu'une valeur plus modérée $p=0,142$ est obtenue pour la catégorie \textit{jetFakes}. Dans la catégorie de signal, une haute valeur de probabilité $p=0,824$ est obtenue pour la \textit{decay plane method} tandis que celle pour le vecteur polarimétrique est nulle, traduisant un problème de modélisation pour ce dernier. La figure \ref{BKGcategories} présente la dis Dans la suite, seule les données dans la catégorie de signal pour la \textit{decay plane method} sont dévoilées dans la figure \ref{SIGcategorydp}. Les distributions avant ajustement sont également présentées dans l'annexe \ref{annexA}. La figure \ref{dp18ub} montre la valeur observée obtenue pour le paramètre $\alpha^{H\tau\tau}$ et de l'intensité de signal inclusive $\mu^{\tau\tau}$ ajustée en fixant $\mu_{V}=\mu_{ggH}=1$. La faible valeur $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$ obtenue lors de l'ajustement témoigne d'un accord des données avec le modèle de bruit de fond sans signal, et ayant pour effet de réduire le niveau de signal attendu après ajustement. Cet effet entraîne également l'observation d'une sensibilité nulle, l'ajustement étant alors incapable de différencier l'hypothèse CP paire de l'hypothèse CP impaire. \\
+La suite de la procédure consiste à vérifier les impacts observés, après l'ajustement aux données. Le BDT utilisé ayant été entraîné sur des échantillons de 2018 uniquement, seules ces données seront dévoilées dans un premier temps afin de s'assurer qu'aucun biais n'ait été introduit lors de la classification des évènements. Ces impacts sont présentés dans les figures \ref{observednuisancedp} et \ref{observednuisancepv} pour la méthode de la decay plane et du vecteur polarimétrique respectivement. La qualité de l'ajustement (GOF, \textit{Goodness Of Fit}) dans chaque catégorie peut ensuite être vérifié à travers un modèle saturé (\textit{saturated} GOF) \cite{Cousins2013GeneralizationOC}. La méthode consiste à générer N modèles de données (\textit{toys}), chacun variant aléatoirement autour de la valeur nominale des modèles introduits dans chaque catégorie en tenant compte des paramètres de nuisance considérés. De cette façon, il est possible d'estimer la probabilité selon laquelle un ensemble de données aléatoire est capable de reproduire le modèle fournit. La figure \ref{saturatedGOF} présente les résultats de la qualité d'ajustement dans les catégories de bruit de fond et dans la catégorie de signal pour les deux méthodes considérées. La haute valeur de probabilité $p=0,805$ dans la catégorie $Z\to\tau\tau$ montre la bonne modélisation de ce bruit de fond, tandis qu'une valeur plus modérée $p=0,142$ est obtenue pour la catégorie JetFakes. Dans la catégorie de signal, une haute valeur de probabilité $p=0,824$ est obtenue pour la méthode de la decay plane tandis que celle pour la méthode du vecteur polarimétrique est nulle, traduisant un problème de modélisation pour ce dernier. La figure \ref{BKGcategories} présente la dis Dans la suite, seule les données dans la catégorie de signal pour la méthode de la decay plane sont dévoilées dans la figure \ref{SIGcategorydp}. Les distributions avant ajustement sont également présentées dans l'annexe \ref{annexA}. La figure \ref{dp18ub} montre la valeur observée obtenue pour le paramètre $\alpha^{H\tau\tau}$ et de l'intensité de signal inclusive $\mu^{\tau\tau}$ ajustée en fixant $\mu_{V}=\mu_{ggH}=1$. La faible valeur $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$ obtenue lors de l'ajustement témoigne d'un accord des données avec le modèle de bruit de fond sans signal, et ayant pour effet de réduire le niveau de signal attendu après ajustement. Cet effet entraîne également l'observation d'une sensibilité nulle, l'ajustement étant alors incapable de différencier l'hypothèse CP paire de l'hypothèse CP impaire. \\
 
 \begin{figure}[]
         \centering
         \begin{subfigure}[b]{\linewidth}
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactsdp18.pdf} 
-    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane dans les donées de 2018.}
+    \caption{Impact observé des 30 paramètres de nuisance principaux pour la méthode de la decay plane dans les données de 2018.}
     \label{observednuisancedp}
             \vspace{10mm}
     \end{subfigure}
@@ -764,7 +740,7 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \centering
         \includegraphics[scale=0.6]{Chapitre7/Images/impactspv18.pdf} 
         \vspace{0.5ex}
-    \caption{Impact attendu des 30 paramètres du nuisance principaux pour la méthode de la decay plane dans les données de 2018.}
+    \caption{Impact observé des 30 paramètres de nuisance principaux pour la méthode du vecteur polarimétrique dans les données de 2018.}
     \label{observednuisancepv}
     \end{subfigure}
     \caption{}
@@ -795,11 +771,11 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{Qualité d'ajustement saturé dans la catégorie $Z\rightarrow\tau\tau$ (a), dans la catégorie \textit{jetFakes} (b) et dans la catégorie de signal pour le vecteur polarimétrique (c) et la méthode du pion neutre (d).}
+    \caption{Qualité d'ajustement saturé dans la catégorie $Z\rightarrow\tau\tau$ (a), dans la catégorie JetFakes (b) et dans la catégorie de signal pour la méthode du vecteur polarimétrique (c) et la méthode de la decay plane (d).}
     \label{saturatedGOF}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[]
     \begin{subfigure}[b]{0.5\linewidth}
         \centering
         \includegraphics[scale=0.35]{Chapitre7/Images/histFakesdataMC2018_postfit.pdf} 
@@ -812,20 +788,20 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
         \caption{} 
         \vspace{0.5ex}
     \end{subfigure}
-    \caption{Distribution du score du BDT dans la catégorie \textit{jetFakes} (a) et $Z\to\tau\tau$ (b) pour le canal $\mu\tau_h$ et accord entre données et simulation pour les données de 2018.}
+    \caption{Distribution du score du BDT dans la catégorie JetFakes (a) et $Z\to\tau\tau$ (b) après ajustement pour le canal $\mu\tau_h$ et accord entre données et simulation pour les données de 2018.}
     \label{BKGcategories}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[]
         \centering
         \includegraphics[scale=0.65]{Chapitre7/Images/histSigdataMC2018dp_postfit.pdf} 
         \vspace{0.5ex}
-    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal dans le canal $a_1^{3pr}+\mu$ accord entre données et simulation pour les données de 2018.}
+    \caption{Distribution de l'observable $\phi_{CP}$ par tranches de score du BDT dans la catégorie de signal après ajustement dans le canal $a_1^{3pr}+\mu$ accord entre données et simulation pour les données de 2018.}
     \label{SIGcategorydp}
 \end{figure}
 
 
-\begin{figure}[!ht]
+\begin{figure}[]
         \centering
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
@@ -843,7 +819,7 @@ La suite de la procédure consiste à vérifier les impacts observés, après l'
     \label{dp18ub}
 \end{figure}
 
-La méthode du vecteur polarimétrique nécessite notamment la reconstruction du vertex secondaire du tau hadronique. La figure \ref{tauflight} montre toutefois qu'une erreur de modélisation existe dans sa reconstruction. L'accord entre les données et la simulation a été vérifié dans deux régions distinctes, la première lorsque $m_{\tau\tau}^{vis}<90$ GeV afin d'obtenir une région enrichie en évènements $Z\to\tau\tau$, et une seconde lorsque $m_{\tau\tau}^{vis}>90$ enrichie en évènements dans lesquels un jet est identifié comme tau hadronique. La seconde région présente un désaccord important, pouvant être à l'origine d'une erreur de modélisation de $\phi_{CP}$ et entraînant la valeur nulle de probabilité lors du test saturé dans la région de signal obtenue avec le vecteur polarimétrique. \\
+La méthode du vecteur polarimétrique nécessite notamment la reconstruction du vertex secondaire du tau hadronique. La figure \ref{tauflight} montre toutefois qu'une erreur de modélisation existe dans sa reconstruction. L'accord entre les données et la simulation a été vérifié dans deux régions distinctes, la première lorsque $m_{\tau\tau}^{vis}<90$ GeV afin d'obtenir une région enrichie en évènements $Z\to\tau\tau$, et une seconde lorsque $m_{\tau\tau}^{vis}>90$ enrichie en évènements dans lesquels un jet est identifié comme tau hadronique. La seconde région présente un désaccord important, pouvant être à l'origine d'une erreur de modélisation de $\phi_{CP}$ et entraînant la valeur nulle de probabilité lors du test saturé dans la région de signal obtenue avec la méthode du vecteur polarimétrique. \\
 
 \begin{figure}
   \begin{subfigure}[b]{0.33\linewidth}
@@ -887,4 +863,4 @@ La méthode du vecteur polarimétrique nécessite notamment la reconstruction du
     \label{tauflight}
 \end{figure}
 
-En conclusion, la méthode du vecteur polarimétrique offre une amélioration de l'ordre de $15\%$ sur la sensibilité attendue sur l'ensemble du Run 2 dans le canal $a_1^{3pr}+\mu$. La procédure de dévoilement des données a toutefois été stoppée après obtention d'une valeur de probabilité nulle dans la région de signal avec le vecteur polarimétrique sur les données de 2018. La modélisation satisfaisante des bruits de fond et de la région de signal avec la méthode de la \textit{decay plane} ont conduit à dévoiler les données de 2018 pour cette méthode uniquement. La proximité des données avec le modèle de bruit de fond sans signal entraîne l'observation d'une valeur d'intensité de signal inclusive $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$, réduisant le niveau de signal attendu après ajustement, et d'une sensibilité de mesure nulle indiquant une indifférenciation des hypothèses CP paire et impaire. Une erreur de modélisation du vertex secondaire du tau hadronique, nécessaire à la reconstruction du vecteur polarimétrique, pourrait être à l'origine de la mauvaise modélisation de $\phi_{CP}$ avec le vecteur polarimétrique.
+En conclusion, la méthode du vecteur polarimétrique offre une amélioration de l'ordre de $15\%$ sur la sensibilité attendue sur l'ensemble du Run 2 dans le canal $a_1^{3pr}+\mu$. Lors de la première mesure dans les données du Run 2 \cite{Htautau}, la sensibilité attendue dans ce même canal donnait une exclusion de l'hypothèse CP impaire contre l'hypothèse CP paire à $0,51\sigma$ avec la méthode de la decay plane. La valeur de $0,92\sigma$ obtenue dans cette mesure avec la même méthode peut s'expliquer par la méthode de classification des évènements qui est différente, avec un nouveau BDT dont les performances n'ont pu être comparée au réseau de neurone précédent. La procédure de dévoilement des données a toutefois été stoppée après obtention d'une valeur de probabilité nulle dans la région de signal avec la méthode du vecteur polarimétrique sur les données de 2018. La modélisation satisfaisante des bruits de fond et de la région de signal avec la méthode de la decay plane ont conduit à dévoiler les données de 2018 pour cette méthode uniquement. La proximité des données avec le modèle de bruit de fond sans signal entraîne l'observation d'une valeur d'intensité de signal inclusive $\mu^{\tau\tau}=0,38^{+0,18}_{-0,16}$, réduisant le niveau de signal attendu après ajustement, et d'une sensibilité de mesure nulle indiquant une indifférenciation des hypothèses CP paire et impaire. Une erreur de modélisation du vertex secondaire du tau hadronique, nécessaire à la reconstruction du vecteur polarimétrique, pourrait être à l'origine de la mauvaise modélisation de $\phi_{CP}$ avec la méthode du vecteur polarimétrique.
